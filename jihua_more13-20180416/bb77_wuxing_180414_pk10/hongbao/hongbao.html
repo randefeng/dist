@@ -1,0 +1,1100 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="renderer" content="webkit" />
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <link href="/Public/Common/by_resource/img/favicon.ico" rel="shortcut icon" />
+  <title>Welcome 必赢彩票网</title>
+  <link rel="stylesheet" type="text/css" href="/Public/Common/layer/layui.css" />
+  <link rel="stylesheet" type="text/css" href="/Public/Home/Css/layerwind.css" />
+  <link rel="stylesheet" href="/Public/Home/Css/index.pack.min.css" />
+  <link rel="stylesheet" href="/Public/Common/layer/skin/layer.css" id="layui_layer_skinlayercss" />
+  <link rel="stylesheet" href="/Public/Common/icons/style.css" />
+  <script type="text/javascript" src="/Public/Common/Js/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="/Public/Common/layer/layer.js"></script>
+  <script type="text/javascript" src="/Public/Common/Js/jquery.ui.datepicker-zh-CN.js"></script>
+  <script type="text/javascript" src="/Public/Common/Js/jquery-ui.js"></script>
+  <script type="text/javascript" src="/Public/Common/Js/jquery.vticker.min.js"></script>
+  <script type="text/javascript" src="/Public/Common/Js/scroll.js"></script>
+  <script type="text/javascript" src="/Public/Home/Face/js/jquery.qqFace.js"></script>
+  <script type="text/javascript" src="https://cdn-hangzhou.goeasy.io/goeasy.js"></script>
+  <script>
+    var outF = 'f='; 
+    var platForm = "biying_";  //平台
+    var UID = "PC-8e10215ec3a8463fb0550d82770896c8";  //goEasy key
+  </script>
+</head>
+<input type="hidden" value="bjpk10" id="lotteryType" />
+<audio src="/Public/Home/Sound/ling.mp3" id="open_ring"></audio>
+<body class="skin_blue" style="height:100%">
+
+  <!--header begin-->
+
+    <div class="header">
+      <div class="header-top clearfix">
+          <div class="logo2">
+              <img src="/Public/Common/by_resource/img/logbai.png" alt="最专业彩票网" height="62" id="domain_logo_url">
+          </div>
+          <div class="menu1">
+              <div id="result_info" class="draw_number">
+                  <div id="cname">
+                  北京赛车(pk10)                  </div>
+                  <span id="drawNumber_new">
+                  676832                  </span><span>期开奖</span>
+              </div>
+              <a id="result_balls" target="_blank" class="T_PK10 L_BJPK10">
+                  <span><b class="b1"></b></span><span><b class="b10"></b></span><span><b class="b6"></b></span><span><b class="b4"></b></span><span><b class="b7"></b></span><span><b class="b2"></b></span><span><b class="b3"></b></span><span><b class="b5"></b></span><span><b class="b8"></b></span><span><b class="bArray"></b></span>              </a>
+              <img src="/Public/Home/Img/sound.png" class="sound_control" style="position:absolute;right:20px;top:6px;"/>
+          </div>
+          <div class="menu2">
+            <span>
+                <a href="/home/user/outstanding_detail.html" target="mcMenuFrame" class="outstanding_detail_url">未结明细</a>
+            </span>
+            <span>
+                <a href="/home/user/today_already_settlement.html" target="mcMenuFrame" class="today_already_settlement_url">今天已结</a>
+            </span>
+                        <span>
+                <a href="/home/user/lottery_results.html" target="mcMenuFrame" class="lottery_url">开奖结果</a>
+            </span>
+            <br>
+            <span>
+                <a href="/home/user/personal_information.html" target="mcMenuFrame" class="information_url">个人资讯</a>
+            </span>
+            <span>
+                <a href="/home/user/the_rules_of_the_game.html" target="mcMenuFrame" class="game_url">游戏规则</a>
+            </span>
+                        <span id="skinPanel" class="">更换皮肤
+              <ul class="hide" id="skinList" style="background:#FFFBDD;border-radius: 6px; ">
+                <li>
+                    <a href="javascript:changeSkin('red')" style="color: #dc2f39">
+                      <i style="background:#dc2f39"></i>红色
+                    </a>
+                  </li>
+                  <li>
+                    <a href="javascript:changeSkin('blue')" style="color:#5382bc">
+                      <i style="background:#5382bc"></i>蓝色
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:changeSkin('green')" style="color:#53BAA2">
+                      <i style="background:#53BAA2"></i>绿色
+                    </a>
+                </li>
+                <li>
+                    <a href="javascript:changeSkin('cyan')" style="color:#519CB8">
+                      <i style="background:#519CB8"></i>青色
+                    </a>
+                </li>
+              </ul>
+            </span>
+          </div>
+          <!-- <div class="trial-cls menu4" style="display: block;">
+              <a class="support" href="http://tb.53kf.com/code/client/10156473/1" target="_blank"></a>
+          </div> -->
+          <div class="menu3">
+              <a class="" style="cursor: pointer;" target="_blank" href="https://tb.53kf.com/webCompany.php?arg=10157196&style=1">在线客服</a>
+          </div>
+          <div class="menu3">
+              <a class="logout" style="cursor: pointer;">退出登录</a>
+          </div>
+          <div style="clear:both;"></div>
+      </div>
+
+      <div id="light" style="display: none;"></div>
+
+      <div class="lotterys">
+          
+          <div class="show"></div>
+          <div class="moregames">
+            更多游戏▼
+            <div class="gamesList">
+              <div class="btn"><span>选择需要在导航栏增加的彩种</span><a href="" class="resetGameList">重置列表</a></div>
+              <div class="list">
+              </div>
+            </div>
+          </div>
+      </div>
+      <div class="header-bottom sub" id="homeCateMenus">
+          <!-- 北京pk10 -->
+          <div id="bjpk10" class="cate_menu hdn">
+              <a class="selected" href="/home/bjpk10/two_sides.html" target="mcMenuFrame">两面盘</a>|
+              <a href="/home/bjpk10/numbers.html" target="mcMenuFrame">单号1 ~ 10 </a>|
+              <a href="/home/bjpk10/first_and_second.html" target="mcMenuFrame">冠亚军组合</a>
+          </div>
+
+          <!-- 极速赛车 -->
+          <div id="jssc" class="cate_menu hdn">
+              <a class="selected" href="/home/jssc/two_sides.html" target="mcMenuFrame">两面盘</a>|
+              <a href="/home/jssc/numbers.html" target="mcMenuFrame">单号1 ~ 10 </a>|
+              <a href="/home/jssc/first_and_second.html" target="mcMenuFrame">冠亚军组合</a>
+          </div>
+
+          <!-- 极速时时彩 -->
+          <div id="jsssc" class="cate_menu hdn">
+              <a href="/home/jsssc/integration.html" target="mcMenuFrame">整合</a>|
+              <a href="/home/jsssc/first_ball.html" target="mcMenuFrame">第一球</a>|
+              <a href="/home/jsssc/second_ball.html" target="mcMenuFrame">第二球</a>|
+              <a href="/home/jsssc/three_ball.html" target="mcMenuFrame">第三球</a>|
+              <a href="/home/jsssc/four_ball.html" target="mcMenuFrame">第四球</a>|
+              <a href="/home/jsssc/five_ball.html" target="mcMenuFrame">第五球</a>|
+          </div>
+          <!-- 极速飞艇 -->
+          <div id="jsft" class="cate_menu hdn">
+              <a class="selected" href="/home/jsft/two_sides.html" target="mcMenuFrame">两面盘</a>|
+              <a href="/home/jsft/numbers.html" target="mcMenuFrame">单号1 ~ 10 </a>|
+              <a href="/home/jsft/first_and_second.html" target="mcMenuFrame">冠亚军组合</a>
+          </div>
+          <!-- 幸运飞艇 -->
+          <div id="mlaft" class="cate_menu hdn">
+              <a class="selected" href="/home/mlaft/two_sides.html" target="mcMenuFrame">两面盘</a>|
+              <a href="/home/mlaft/numbers.html" target="mcMenuFrame">单号1 ~ 10 </a>|
+              <a href="/home/mlaft/first_and_second.html" target="mcMenuFrame">冠亚军组合</a>
+          </div>
+
+          <!-- 重庆时时彩 -->
+          <div id="cqssc" class="cate_menu hdn">
+              <a href="/home/cqssc/integration.html" target="mcMenuFrame">整合</a>|
+              <a href="/home/cqssc/first_ball.html" target="mcMenuFrame">第一球</a>|
+              <a href="/home/cqssc/second_ball.html" target="mcMenuFrame">第二球</a>|
+              <a href="/home/cqssc/three_ball.html" target="mcMenuFrame">第三球</a>|
+              <a href="/home/cqssc/four_ball.html" target="mcMenuFrame">第四球</a>|
+              <a href="/home/cqssc/five_ball.html" target="mcMenuFrame">第五球</a>|
+              <a href="/home/cqssc/single_code.html" target="mcMenuFrame">单码</a>|
+              <a href="/home/cqssc/continuity_number.html" target="mcMenuFrame">连码</a>
+          </div>
+
+          <!-- 重庆快乐十分(幸运农场) -->
+          <div id="cqklsf" class="cate_menu hdn">
+              <a class="selected" href="/home/cqklsf/two_sides.html" target="mcMenuFrame">两面盘</a>|
+              <a href="/home/cqklsf/numbers.html" target="mcMenuFrame">单号1 ~ 8 </a>|
+              <a href="/home/cqklsf/first_ball.html" target="mcMenuFrame">第一球</a>|
+              <a href="/home/cqklsf/second_ball.html" target="mcMenuFrame">第二球</a>|
+              <a href="/home/cqklsf/three_ball.html" target="mcMenuFrame">第三球</a>|
+              <a href="/home/cqklsf/four_ball.html" target="mcMenuFrame">第四球</a>|
+              <a href="/home/cqklsf/five_ball.html" target="mcMenuFrame">第五球</a>|
+              <a href="/home/cqklsf/six_ball.html" target="mcMenuFrame">第六球</a>|
+              <a href="/home/cqklsf/seven_ball.html" target="mcMenuFrame">第七球</a>|
+              <a href="/home/cqklsf/eight_ball.html" target="mcMenuFrame">第八球</a>|
+              <a href="/home/cqklsf/integrity_number.html" target="mcMenuFrame">正码</a>|
+              <a href="/home/cqklsf/continuity_number.html" target="mcMenuFrame">连码</a>
+          </div>
+
+          <!-- 北京快乐8 -->
+          <div id="bjkl8" class="cate_menu hdn">
+              <a href="/home/bjkl8/sum_number_line.html" target="mcMenuFrame">总和、比数、五行</a>|
+              <a href="/home/bjkl8/integrity_number.html" target="mcMenuFrame">正码</a>
+          </div>
+
+          <!-- PC蛋蛋 -->
+          <div id="pcdd" class="cate_menu hdn">
+              <a href="/home/pcdd/index.html" target="mcMenuFrame">PC蛋蛋</a>
+          </div>
+
+          <!-- 广东11选5 -->
+          <div id="gd11x5" class="cate_menu hdn">
+              <a href="/home/gd11x5/two_sides.html" target="mcMenuFrame">两面</a>|
+              <a href="/home/gd11x5/numbers.html" target="mcMenuFrame">单号</a>|
+              <a href="/home/gd11x5/continuity_number.html" target="mcMenuFrame">连码</a>|
+              <a href="/home/gd11x5/directly_elected.html" target="mcMenuFrame">直选</a>
+          </div>
+
+          <!-- 江苏骰宝(快3) -->
+          <div id="jsk3" class="cate_menu hdn">
+              <a href="/home/jsk3/big_small.html" target="mcMenuFrame">大小骰宝</a>
+          </div>
+
+          <!-- 广东快乐十分 -->
+          <div id="gdklsf" class="cate_menu hdn">
+              <a class="selected" href="/home/gdklsf/two_sides.html" target="mcMenuFrame">两面盘</a>|
+              <a href="/home/gdklsf/numbers.html" target="mcMenuFrame">单号1 ~ 8 </a>|
+              <a href="/home/gdklsf/first_ball.html" target="mcMenuFrame">第一球</a>|
+              <a href="/home/gdklsf/second_ball.html" target="mcMenuFrame">第二球</a>|
+              <a href="/home/gdklsf/three_ball.html" target="mcMenuFrame">第三球</a>|
+              <a href="/home/gdklsf/four_ball.html" target="mcMenuFrame">第四球</a>|
+              <a href="/home/gdklsf/five_ball.html" target="mcMenuFrame">第五球</a>|
+              <a href="/home/gdklsf/six_ball.html" target="mcMenuFrame">第六球</a>|
+              <a href="/home/gdklsf/seven_ball.html" target="mcMenuFrame">第七球</a>|
+              <a href="/home/gdklsf/eight_ball.html" target="mcMenuFrame">第八球</a>|
+              <a href="/home/gdklsf/integrity_number.html" target="mcMenuFrame">正码</a>|
+              <a href="/home/gdklsf/continuity_number.html" target="mcMenuFrame">连码</a>
+          </div>
+
+          <!-- 香港六合彩 -->
+          <div id="hk6" class="cate_menu hdn">
+              <a href="/home/hk6/code.html" target="mcMenuFrame">特码</a>|
+              <a href="/home/hk6/two_sides.html" target="mcMenuFrame">两面</a>|
+              <a href="/home/hk6/color_wave.html" target="mcMenuFrame">色波</a>|
+              <a href="/home/hk6/special_zodiac.html" target="mcMenuFrame">特肖</a>|
+              <a href="/home/hk6/close_zodiac.html" target="mcMenuFrame">合肖</a>|
+              <a href="/home/hk6/dockers_mantissa.html" target="mcMenuFrame">特码头尾数</a>|
+              <a href="/home/hk6/integrity_number.html" target="mcMenuFrame">正码</a>|
+              <a href="/home/hk6/positive_code.html" target="mcMenuFrame">正码特</a>|
+              <a href="/home/hk6/integrity_number_16.html" target="mcMenuFrame">正码1~6</a>|
+              <a href="/home/hk6/five_elements.html" target="mcMenuFrame">五行</a>|
+              <a href="/home/hk6/a_lot_of_mantissa.html" target="mcMenuFrame">平特一肖尾数</a>|
+              <a href="/home/hk6/positive_zodiac.html" target="mcMenuFrame">正肖</a>|
+              <a href="/home/hk6/seven_color.html" target="mcMenuFrame">7色波</a>|
+              <a href="/home/hk6/sum_zodiac.html" target="mcMenuFrame">总肖</a>|
+              <a href="/home/hk6/optional_no.html" target="mcMenuFrame">自选不中</a>|
+              <a href="/home/hk6/xiao_lian_lian.html" target="mcMenuFrame">连肖连尾</a>|
+              <a href="/home/hk6/continuity_number.html" target="mcMenuFrame">连码</a>
+          </div>
+      </div>
+    </div>
+    
+    <!-- 外层左侧 -->
+    <div class="main-wrap">
+      <!--siderbar-->
+      <div class="siderbar" id="left_main">
+          <div class="side_left userctrl">
+              <ul>
+                  <li>
+                      <div class="r-wrap r-nowrap1">账户信息</div>
+                      <div class="info">
+                          <div>
+                              <label>账号：</label>
+                              <span class="user-name">guest</span>
+                          </div>
+                          <div>
+                              <label>帐号余额：</label><span class="balance" id="balance_id">2000.00</span>
+                          </div>
+                          <div style="position: relative;">
+                              <label>未结金额：</label>
+                              <span class="betting" id="betting_id">0.00</span>
+                              <a href="javascript:void(0)" title="点击刷新消息" style="position: absolute;right: 2px;top: 3px;">
+                                  <img alt="点击刷新消息" src="/Public/Home/Img/refresh.png" width="18" height="18" title="点击刷新消息" class="refresh_img">
+                              </a>
+                          </div>
+                      </div>
+                  </li>
+                                    <li class="r-wrap r-nowrap1 trial-cls link" style="display: list-item;">
+                      <a class="r-bg do_reg">立即开户</a>
+                    </li>                  <li class="r-wrap r-nowrap1 trial-cls link" style="display: list-item;">
+                      <a class="r-bg" href="#" target="_blank">必赢聊天室</a>
+                      <img id="left_user_new_notice" src="/Public/Home/Img/msg_new2.png" class="new hide">
+                  </li>
+                  <li class="r-wrap r-nowrap1 trial-cls link" style="display: list-item;">
+                      <a class="r-bg" href="http://www.kj3456.com" target="_blank">开奖直播</a>
+                      <img id="left_user_new_notice" src="/Public/Home/Img/msg_new2.png" class="new hide">
+                  </li>
+                                    <li class="r-wrap r-nowrap1 trial-cls" style="display: block;" id="lastBets_btn">
+                      <a class="cursor" href="#">最新注单</a>
+                  </li>
+                  
+              </ul>
+          </div>
+          <div class="sider-col2" id="betResultPanel">
+              <div id="lastBetsCont" class="side_left">
+                  <ul class="bets" id="betReulstList"></ul>
+              </div>
+          </div>
+      </div>
+      <!--/siderbar-->
+      <div class="content-wrap" style="overflow:auto;height: 100%">
+          <iframe id="mcMenuFrame" name="mcMenuFrame" src="/home/bjpk10/two_sides.html" width="100%" border="0" frameborder="no" onload="SetWinHeight()"></iframe>
+      </div>
+    </div>
+    
+    <!-- 公告 -->
+    <div class="announce">
+      <h3 class="announc3-hd">公告</h3>
+      <marquee scrolldelay="150" style="position:relative;left:80px;">
+        <span>
+              <a href="javascript:notices()" target="_blank">1. 尊敬的广大会员，您好！入款银行卡【民生-尹淑清】【民生-尹淑清】【民生-尹淑清】【民生-尹淑清】【民生-尹淑清】【民生-尹淑清】已永久停止使用，若入款到过期的账号，视为无效的存款，平台一概不负责，如果您需要银行卡转账进行充值,请您联系客服QQ2221234507，2221234508！请您每次入款之前先核对我们的入款银行卡账号！谢谢您的配合与支持，祝大家游戏愉快！（请勿相信主动加您好友让您充值的QQ哦）</a>
+          </span><span>
+              <a href="javascript:notices()" target="_blank">2. 尊敬的广大用户：如有发现打开我们的网址变成“403”请您更换浏览器，尽量不要使用360安全浏览器！感谢您对必赢平台的支持与信任！祝生活愉快！</a>
+          </span><span>
+              <a href="javascript:notices()" target="_blank">3. 【重要通知】尊敬的客户您好：如您登录必赢彩票的网址跳转到其他平台，那么就是您本地的DNS被电信商强行劫持到黑庄，非常危险，本公司不会改名，在线客服也不会向会员索取登入密码和取款密码，更没有推出任何新平台，也不会停止服务。如发现网页被跳转立刻联系客服处理！客服专员QQ：2221234507 2221234513。认准必赢彩票官方网址bb88.com ^*必赢平台禁止下注8 9码，请广大会员悉知！</a>
+          </span>      </marquee>
+    </div>
+
+    <div id="chatRoom">
+      <div class="c-header">
+        <img class="c-header-avatar user-avatar" src="/Public/Home/Img/chat/default_avatar.png" width="34" height="34">
+        <span class="c-title">聊天室</span>
+        <span class="header-icons"><span class="icon-shrink" style="display: none" onclick="substractWidth()"></span><span class="icon-enlarge" onclick="addWidth()"></span><a onclick="settingChat()" title="设置"><span class="icon-cog"></span></a><a onclick="closeChat()" title="隐藏聊天室"><span class="icon-cross"></span></a></span>
+      </div>
+      <div class="c-content">
+        <div class="c-notice">
+          <span class="notice-title">公告:</span>
+          <marquee scrolldelay="150" style="">
+            <span>
+                  <a style="color:orange;" href="javascript:notices()" target="_blank">1. 尊敬的广大会员，您好！入款银行卡【民生-尹淑清】【民生-尹淑清】【民生-尹淑清】【民生-尹淑清】【民生-尹淑清】【民生-尹淑清】已永久停止使用，若入款到过期的账号，视为无效的存款，平台一概不负责，如果您需要银行卡转账进行充值,请您联系客服QQ2221234507，2221234508！请您每次入款之前先核对我们的入款银行卡账号！谢谢您的配合与支持，祝大家游戏愉快！（请勿相信主动加您好友让您充值的QQ哦）</a>
+              </span><span>
+                  <a style="color:orange;" href="javascript:notices()" target="_blank">2. 尊敬的广大用户：如有发现打开我们的网址变成“403”请您更换浏览器，尽量不要使用360安全浏览器！感谢您对必赢平台的支持与信任！祝生活愉快！</a>
+              </span><span>
+                  <a style="color:orange;" href="javascript:notices()" target="_blank">3. 【重要通知】尊敬的客户您好：如您登录必赢彩票的网址跳转到其他平台，那么就是您本地的DNS被电信商强行劫持到黑庄，非常危险，本公司不会改名，在线客服也不会向会员索取登入密码和取款密码，更没有推出任何新平台，也不会停止服务。如发现网页被跳转立刻联系客服处理！客服专员QQ：2221234507 2221234513。认准必赢彩票官方网址bb88.com ^*必赢平台禁止下注8 9码，请广大会员悉知！</a>
+              </span>          </marquee>
+        </div>
+        <div class="c-room nano">
+          <div class="c-comein">
+          </div>
+          <ul class="chat-list nano-content">
+            <p class="connectInfo">聊天室连接中...</p>
+            <!-- <li class="chat-item user8" data-id="1516092836100" data-nickname="did">
+              <div class="c-avatar">
+                <img class="c-header-avatar " onclick="atSomeOne(&quot;did&quot;)" src="/Uploads/User/5a56321609e0e.png" width="50" height="50">
+              </div>
+              <div class="c-infos"><p class="c-userinfo"><span class="c-username">did</span><img src="/Public/Home/Img/chat/user-lv-8.gif" class="userlv userlv8"><span class="c-time">16:53:56</span></p>
+                <div class="rb-item" id="rb-item-rb100001" data-id="rb100001">
+                  <img src="/Public/Home/Img/chat/rb-2.png" class="rb-img-1" height="40">
+                  <div class="rb-text">
+                    <p class="rb-text-title">恭喜发财，大吉大利</p>
+                    <p class="rb-text-notice">点击领红包</p>
+                  </div>
+                </div>
+              </div>
+            </li> -->
+            <!-- <p class="rb-result"><img src="/Public/Home/Img/chat/rb-1.png" width="24">恭喜<span class="rb-username">小司机</span>打开<span class="rb-giver">管理员5</span>的红包，抢到<span class="rb-money">22.88</span>元！</p> -->
+          </ul>
+        </div>
+        <div class="c-bg-black hdn">
+          <div class="rb-opening hdn">
+            <p class="rb-opening-notice">点击打开红包</p>
+          </div>
+          <div class="rb-opened hdn">
+            <p class="rb-opened-notice"></p>
+            <p class="rb-opened-text"></p>
+          </div>
+          <p class="rb-bg-notice">点击黑色区域可回到聊天界面</p>
+        </div>
+      </div>
+      <div class="c-footer">
+        <div class="c-tools">
+          <div id="show"></div> 
+          <span class="c-imojo header-icon"><a title="表情" class="emotion"><i class="layui-icon">&#xe650;</i></a></span>
+          <span class="c-image header-icon">
+            <a onclick="uploadFiles()" title="上传图片"><i class="layui-icon">&#xe64a;</i></a>
+            <input id="imgUploadInput" type="file" accept=".jpg, .png, .gif, .jpeg, image/jpeg, image/png, image/gif" style="width: 0.1px; height: 0.1px; opacity: 0; position: absolute; top: -20px;">
+          </span>
+          <span class="paste-title">输入框粘贴可发送图片</span>
+          <span class="screen-tools">
+            <a class="c-screen scroll-screen checked" onclick="screenScroll()">滚屏</a>
+            <a class="c-screen clear-screen" onclick="screenClear()">清屏</a>
+          </span>
+        </div>
+        <div class="c-input">
+          <textarea class="chat-input" id="saytext" name="saytext"></textarea>
+        </div>
+        <div class="c-btns">
+          <div class="c-send">
+            <span class="c-enter">回车发送<input class="c-enter-checkbox" checked="true" type="checkbox"></span>
+            <button class="c-send-btn" onclick="chatSend()">发 送</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="chat-logo"></div>
+    <input id="chat-setting-avatar" type="file" hidden accept=".jpg, .png, .gif, .jpeg, image/jpeg, image/png, image/gif">
+
+    <script type="text/javascript">
+
+    console.log('哈哈干到了吧')
+      var chatUser = {
+        avatar: '',
+        nickname: '',
+        connected: !1,
+        level: 0,
+        scroll: true,
+        chatStatus: -1, //1可以发言  0禁言  -1游客
+        userType: '1', //1普通会员  2管理员  2计划
+        setNick: '',
+        redBagId: {}
+      };
+
+      // $()
+      // $('.chat-list').append($chatItem);
+
+      //点击打开聊天室
+      var goEasy;
+      $('.chat-logo').click(function(e){
+        setTimeout(function(){$('.chat-list').scrollTop($('.chat-list').get(0).scrollHeight - $('.chat-list').height());}, 1000);
+        $(this).hide();
+        $('#chatRoom').show().animate({right: 0,},400, function() {
+          $('.connectInfo').show();
+          if(!chatUser.connected){  //初次进入聊天室
+            $.post('./get_goeasy_otp', {key: UID}, function(data){
+              if(data.status == 1){
+                //连接GoEasy
+                goEasy = new GoEasy({
+                  appkey: UID,
+                  otp: data.otp,
+                  onConnected: function () {
+                    $('.connectInfo').text("聊天室已连接");
+                    chatUser.connected = !0;
+                    getChatInfo();
+
+                    //删除消息
+                    goEasy.subscribe({
+                      channel: platForm + 'del',
+                      onMessage: function(message){
+                        var data = $.parseJSON(message.content);
+                        console.log(data);
+                        for(var i=0; i<$('.chat-item').length; i++){
+                          if(data.random_number == $('.chat-item').eq(i).data('id') && data.nickname == $('.chat-item').eq(i).data('nickname')){
+                            $('.chat-item').eq(i).remove();
+                          }
+                        }
+                      }
+                    });
+                    //进入弹幕
+                    goEasy.subscribe({
+                      channel: platForm + '2',
+                      onMessage: function(message){
+                        console.log('message'+JSON.stringify(message))
+                        var n = '';
+                        var t = message.content;
+                        n = t == '游客' ? t + parseInt(1000*Math.random()) : t;
+                        var i = parseInt(100000000000*Math.random());
+                        $('.c-comein').append('<p class="come-user"><span class="come-info comeinfo'+ i +'">欢迎 '+ n +' 进入聊天室</span></p>');
+                        $('.comeinfo' + i).animate({left: 0},
+                          800, function() {
+                            setTimeout(function(){
+                              $('.comeinfo' + i).parent().remove();
+                            }, 2000);
+                        });
+                      }
+                    });
+
+                    //红包
+                    goEasy.subscribe({
+                      channel: 'hongbao',
+                      onMessage: function(message){
+                        var data = $.parseJSON(message.content);
+                        // if(!data.title){data.title = '大吉大利，恭喜发财！'}
+                        console.log(data);
+
+                        debugger
+                        var ele = '<li class="chat-item user2" data-id="1516092836100111" data-nickname="did">' +
+                                    '<div class="c-avatar">' +
+                                      '<img class="c-header-avatar " src="/Uploads/User/guanliyuan.png" width="50" height="50">' +
+                                    '</div>' +
+                                    '<div class="c-infos"><p class="c-userinfo"><span class="c-username">管理员8</span><img class="userlv userlv2" src="/Public/Home/Img/chat/user-lv-2.gif" class="userlv userlv8"></p>' +
+                                      '<div class="rb-item" id="rb-item-rb'+ data.id +'" data-id="'+ data.id +'">' +
+                                        '<img src="/Public/Home/Img/chat/rb-2.png" class="rb-img-1" height="40">' +
+                                        '<div class="rb-text">' +
+                                          '<p class="rb-text-title">'+ data.title +'</p>' +
+                                          '<p class="rb-text-notice">点击领红包</p>' +
+                                        '</div></div></div></li>';
+                        $('.chat-list').append(ele);
+                        chatUser.redBagId['rb'+data.id] = 1;
+                        rbFunc(data.id);
+                        chatUser.scroll ? $('.chat-list').scrollTop($('.chat-list').get(0).scrollHeight - $('.chat-list').height()) : 1;
+                      }
+                    });
+                    //红包列表
+                    goEasy.subscribe({
+                      channel: 'hongbao_list',
+                      onMessage: function(message){
+                        var data = $.parseJSON(message.content);
+                        if(!data.nickname || !data.money){return false;}
+                        var ele = '<p class="rb-result"><img src="/Public/Home/Img/chat/rb-1.png" width="24">恭喜<span class="rb-username">'+data.nickname+'</span>打开<span class="rb-giver">管理员8</span>的红包，抢到<span class="rb-money">'+data.money+'</span>元！</p>';
+                        $('.chat-list').append(ele);
+                        chatUser.scroll ? $('.chat-list').scrollTop($('.chat-list').get(0).scrollHeight - $('.chat-list').height()) : 1;
+                      }
+                    });
+                  },
+                  onConnectFailed: function (error) {
+                    console.log("与GoEasy连接失败，错误编码："+error.code+"错误信息："+error.content);
+                  }
+                });
+              }
+            });
+            
+            //连接本站服务器
+            $.post('./get_history_userinfo', {type: 1}, function(data){
+              chatUser.avatar = data.header_img;
+              chatUser.nickname = data.nickname;
+              chatUser.level = data.user_type;
+              chatUser.chatStatus = data.chat_status;
+              
+              var data = $.parseJSON(data.history);
+              for(var i=49; i>=0; i--){
+                if(!data[i]){continue;}
+                chatAppend(data[i]);
+              }
+              $('.chat-list').append('<p class="history-msg-flag">以上是历史消息</p>');
+              $('.chat-list').scrollTop($('.chat-list').get(0).scrollHeight - $('.chat-list').height());
+
+              //发言权限
+              if(!chatUser.chatStatus || chatUser.chatStatus !== '1'){
+                $('.chat-input').attr('disabled', 'disabled');
+                $('.chat-input').val('您当前没有发言权限，请登录正式用户或者联系客服处理！').css('color', '#555');
+              }
+
+              //头像昵称
+              if(chatUser.avatar){
+                $('.user-avatar').attr('src', './Uploads/User/'+chatUser.avatar);
+              }
+              if(!chatUser.avatar){
+                $('.chat-list').append('<p class="avatar-msg-flag">您正使用默认头像，点击顶部头像可自定义头像</p>');
+              }
+              if(chatUser.nickname.indexOf('***') != -1){
+                $('.chat-list').append('<p class="nickname-msg-flag">当前昵称为用户名缩写，点击上方设置按钮可设置昵称</p>');
+              }
+            });
+       
+          }
+          $('.chat-list').scrollTop($('.chat-list').get(0).scrollHeight - $('.chat-list').height());
+        });
+      });
+      $('.chat-logo').click();
+
+      //聊天设置
+      function settingChat() {
+        var setEle = '<div class="chat-setting">'+
+        '<div class="nickname-show">用户：'+ $('.user-name').text() +'</div>'+
+        '<div class="level-show">会员：<img src="/Public/Home/Img/chat/user-lv-'+ chatUser.level +'.gif" class="userlv userlv'+ chatUser.level +'"></div>'+
+        '<div class="nickname-set">昵称： <input class="nickname-input" onkeyup="changeNick(this)" type="text" /></div>'+
+        '</div>'
+        var settingPop = layer.open({
+          title: '聊天设置',
+          type: 1,
+          shift: 2,
+          btn: ['确定'],
+          yes: function(){
+            layer.close(settingPop);
+            console.log(chatUser.setNick);
+            if(chatUser.nickname.indexOf('***') != -1){
+              $.post('./user_add_nickname', {'nickname': chatUser.setNick, type: 1}, function(data){
+                if(data.status == 1){
+                  layer.alert('昵称添加成功！');
+                }else{
+                  layer.alert('昵称添加失败，请重试或联系客服处理！<br/>' + data.info);
+                }
+              });
+            }
+          },
+          area: ['360px', 'auto'],
+          content: setEle,
+          success: function(){
+            if(chatUser.nickname.indexOf('***') == -1){
+              $('.nickname-set').remove();
+              $('.chat-setting').append('<div class="nickname-set">昵称：'+ chatUser.nickname +'</div>');
+            }
+          }
+        });
+      }
+
+      function changeNick(e) {
+        chatUser.setNick = e.value;
+      }
+
+      function uploadFiles(){
+        $('#imgUploadInput').click();
+      }
+
+      //头像上传
+      $('.user-avatar').click(function(){
+        if(chatUser.chatStatus != '1'){return false;}
+        $('#chat-setting-avatar').click();
+        $('#chat-setting-avatar').bind('change', function(e){
+          var fileObj = $(this)[0].files[0];
+          if(fileObj.type.indexOf('image') <= -1){
+            layer.alert('请选择图片格式文件！');
+            return false;
+          }else if(fileObj.size > 200000){
+            layer.alert('文件大小超出范围！');
+            return false;
+          }
+          var fd = new FormData();
+          fd.append('file', fileObj);
+          fd.append('type', 1);
+          $.ajax({
+              type: 'POST',
+              url: './user_upload_img',
+              data: fd,
+              processData: false, // 不会将 data 参数序列化字符串
+              contentType: false, // 根据表单 input 提交的数据使用其默认的 contentType
+          }).success(function (res) {
+              $('.user-avatar').attr('src', res.path);
+          }).error(function (err) {
+              console.error(err);
+          });  
+        });
+      });
+
+      //粘贴上传图片
+      document.querySelector('.chat-input').onpaste = function(e) {  
+          //判断是否是粘贴图片               
+          if (e.clipboardData && e.clipboardData.items && e.clipboardData.items[0].type.indexOf('image') > -1) { 
+              var that = this,  
+              reader = new FileReader(),  
+              file = e.clipboardData.items[0].getAsFile();  
+              reader.readAsDataURL(file); 
+              reader.onload = function(e) {  
+                  // this.result得到图片的base64 (可以用作即时显示)  
+                  var dataURL = this.result;
+                  var img = '<img src="' + this.result + '" alt="" width="300" />';  
+                  var sendImgPop = layer.open({
+                    title: '发送图片',
+                    content: '<div style="text-align:center;">'+ img +'</div>',
+                    btn: ['确认发送', '取消'],
+                    area: ['400px', '300px'],
+                    yes: function(){
+                      var fd = new FormData();
+                      var blob = dataURItoBlob(dataURL);
+                      fd.append('file', blob);
+                      fd.append('type', 1);
+                      $.ajax({
+                          type: 'POST',
+                          url: './chat_upload_img',
+                          data: fd,
+                          processData: false, // 不会将 data 参数序列化字符串
+                          contentType: false, // 根据表单 input 提交的数据使用其默认的 contentType
+                      }).success(function (res) {
+                          if(res.status != 1){
+                            layer.alert('发送失败! '+ res.info);
+                          }
+                          layer.close(sendImgPop);
+                      }).error(function (err) {
+                          console.error(err);
+                      });
+                    },
+                    btn2: function(){
+                      layer.close(sendImgPop);
+                    }
+                  });
+              }   
+          }  
+      };  
+      function dataURItoBlob(dataURI) { //base64转二进制文件
+          var byteString = atob(dataURI.split(',')[1]);
+          var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+          var ab = new ArrayBuffer(byteString.length);
+          var ia = new Uint8Array(ab);
+          for (var i = 0; i < byteString.length; i++) {
+              ia[i] = byteString.charCodeAt(i);
+          }
+          return new Blob([ab], {type: mimeString});
+      }
+
+      //点击上传图片
+      var fileM=document.querySelector("#imgUploadInput");
+      $('#imgUploadInput').bind('change', function(e){
+        var fileObj = fileM.files[0];
+        if(fileObj.type.indexOf('image') <= -1){
+          layer.alert('请选择图片格式文件！');
+          return false;
+        }else if(fileObj.size > 2000000){
+          layer.alert('文件大小超出范围！');
+          return false;
+        }
+        var fd = new FormData();
+        fd.append('file', fileObj);
+        fd.append('type', 1);
+        $.ajax({
+            type: 'POST',
+            url: './chat_upload_img',
+            data: fd,
+            processData: false, // 不会将 data 参数序列化字符串
+            contentType: false, // 根据表单 input 提交的数据使用其默认的 contentType
+        }).success(function (res) {
+            if(res.status != 1){
+              layer.alert('发送失败! '+ res.info);
+            }
+        }).error(function (err) {
+            console.error(err);
+        });  
+      });
+
+      //表情初始化
+      $('.emotion').qqFace({ 
+          assign:'saytext', //给输入框赋值 
+          path:'/Public/Home/Face/arclist/'    //表情图片存放的路径 
+      }); 
+
+      //回车发送消息
+      $('#chatRoom').bind('keydown', function(e){
+        if(e.keyCode == 13 && $('.c-enter-checkbox')[0].checked){
+          e.preventDefault();
+          chatSend();
+        }
+      });
+
+      //发送消息
+      function chatSend() {
+        var userWords = $('.chat-input').val();
+        $('.chat-input').val('');
+        if(!userWords || !checkBlankSpace(userWords)){
+          layer.alert('请不要发送空的消息！');
+          return false;
+        }
+        $.post('./chat_txt', {content: userWords, type: 1}, function(data){
+          if(data.status == 0){
+            layer.alert(data.info);
+          }
+        });
+      }
+
+      //空格检测
+      function checkBlankSpace(str){
+        while(str.lastIndexOf(" ")>=0){
+          str = str.replace(" ","");
+        }
+        return str.length;
+      }
+
+      //点击看图
+      function showChatImg(e) {
+        console.log(e.getAttribute('src'));
+        var showImg = layer.open({
+          title: '图片放大',
+          type: 1,
+          skin: 'layui-layer-demo', //样式类名
+          closeBtn: 1,
+          shift: 2,
+          area: ['auto', 'auto'],
+          shadeClose: true, //开启遮罩关闭
+          content: '<div style="padding: 2px;"><img src="'+ e.getAttribute('src') +'" alt="" style="max-width:800px;max-height:600px;"/></div>'
+        });
+      }
+
+      //监听消息 ****
+      function getChatInfo() {
+        //连接GoEasy
+        goEasy.subscribe({
+          channel: platForm + '1',
+          onMessage: function(message){
+            var data = $.parseJSON(message.content);
+            // console.log(data);
+            chatAppend(data);
+          }
+        });
+      }
+
+      //消息遍历
+      function chatAppend(data) {
+        $('.connectInfo').hide();
+        // console.log(data);
+        if(!data.header_img){
+          data.header_img = '/Public/Home/Img/chat/default_avatar.png';
+        }
+        var content = data.content.replace(/#_&/g, '<br>');
+        $chatItem = $('<li class="chat-item '+ 'user' + data.user_type +'" data-id='+ data.random_number +' data-nickname='+ data.nickname +'>'+
+          '<div class="c-avatar">'+
+              '<img class="c-header-avatar " onclick=atSomeOne("'+data.nickname+'") src="'+ data.header_img +'" width="50" height="50">'+
+            '</div>'+
+            '<div class="c-infos">'+
+              '<p class="c-userinfo">'+
+                '<span class="c-username">'+ data.nickname +'</span>'+
+                '<img src="/Public/Home/Img/chat/user-lv-'+ data.user_type +'.gif" class="userlv userlv'+ data.user_type +'">'+
+                '<span class="c-time">' + data.send_time + '</span>'+
+              '</p>'+
+              '<div class="c-userwords c-userwords-normal" id="chatimg" data-img='+ data.chat_img +'>'+ content +'</div>'+
+            '</div>'+
+          '</li>');
+        
+        if(data.chat_img){
+          $chatItem.find('#chatimg').find('img').attr('src', data.chat_img).load(function(e){
+            chatUser.scroll ?  $('.chat-list').scrollTop($('.chat-list').get(0).scrollHeight - $('.chat-list').height()) : 1;
+          });
+        }
+        var scrollFlag = chatUser.scroll;
+        $('.chat-list').append($chatItem);
+        if($('.chat-item').length > 100){
+          var c = $('.chat-item').length - 100;
+          for(var i=0; i<c; i++){
+            $('.chat-item').eq(i).remove();
+          }
+        }
+        chatUser.scroll ? $('.chat-list').scrollTop($('.chat-list').get(0).scrollHeight - $('.chat-list').height()) : 1;
+      }
+
+      //停止订阅GoEasy
+      function stopGoEasy(goEasy, channel) {
+        goEasy.unsubscribe({ 
+          channel: platForm + channel, 
+          onSuccess: function () { 
+            if(channel == '1'){layer.alert("聊天室已停止接收消息，继续聊天请重新打开聊天室！");}
+          }, 
+          onFailed: function (error) { 
+            console.log("【删除命令】取消订阅失败，错误编码：" + error.code + " 错误信息：" + error.content);
+            if(channel == '1'){layer.alert("取消订阅失败，错误编码：" + error.code + " 错误信息：" + error.content);}
+          } 
+        });
+      }
+      
+      //关闭聊天
+      function closeChat() {
+        $('#chatRoom').animate({right: -400,},400, function() {
+          $('#chatRoom').hide();
+          $('.chat-logo').show();
+          stopGoEasy(goEasy, '1');
+          stopGoEasy(goEasy, '2');
+          stopGoEasy(goEasy, 'del');
+          chatUser.connected = !1;
+        });
+      }
+
+      //@聊天
+      function atSomeOne(data) {
+        if(data != '计划消息' && data != chatUser.nickname){
+          var words = $('.chat-input').val();
+          var atWords = '@'+data;
+          if(words.indexOf(atWords) >= 0){
+            words = words.replace(atWords, atWords);
+            $('.chat-input').val(words);
+          }else{
+            $('.chat-input').val('@'+data + ' ' + words);
+          }
+        }
+      }
+
+      //加宽
+      function addWidth() {
+        $('#chatRoom').css('width', '480px');
+        $('.icon-shrink').show();
+        $('.icon-enlarge').hide();
+        $('.chat-list').scrollTop($('.chat-list').get(0).scrollHeight - $('.chat-list').height());
+      }
+      //减窄
+      function substractWidth() {
+        $('#chatRoom').css('width', '360px');
+        $('.icon-enlarge').show();
+        $('.icon-shrink').hide();
+        $('.chat-list').scrollTop($('.chat-list').get(0).scrollHeight - $('.chat-list').height());
+      }
+      
+      //滚屏
+      function screenScroll() {
+        chatUser.scroll = !chatUser.scroll;
+        scrollCheck(chatUser.scroll)
+      }
+      //自动滚屏判断
+      function scrollCheck(e) {
+        if(e){
+          $('.scroll-screen').addClass('checked');
+        }else{
+          $('.scroll-screen').removeClass('checked');
+        }
+      }
+      //清屏
+      function screenClear() {
+        $('.chat-list').html('');
+      }
+
+      //滚动事件
+      var scrollTimer;
+      $('.chat-list').scroll(function(e){
+        clearTimeout(scrollTimer);
+        $this = $(this);
+        scrollTimer = setTimeout(function(){
+          var a = $this.get(0).scrollHeight;
+          var h = $this.height();
+          var s = $this.scrollTop();
+          if(a - h - s <= 60){
+            //自动滚动
+            chatUser.scroll = true;
+            scrollCheck(chatUser.scroll);
+          }else{
+            //手动滚动
+            chatUser.scroll = false;
+            scrollCheck(chatUser.scroll);
+          }
+        }, 200);
+        
+      });
+      
+      //红包
+      $('.c-bg-black').click(function(){ //点击黑背景关闭红包页
+        $(this).hide();
+        $('.rb-opening').fadeOut();
+        $('.rb-opened').fadeOut();
+      });
+      function rbFunc(i){
+        // console.log(i);
+        $('#rb-item-rb' + i).click(function(){ //点击红包item
+          var id = i;
+          if(chatUser.redBagId['rb'+id] == 0 || chatUser.chatStatus != 1){layer.msg('您已抢过该红包，或者暂无抢红包的权限!');return false;}
+          $('.rb-opening-notice').text('点击打开红包');
+          $('.c-bg-black').fadeIn();
+          $('.rb-opening').fadeIn().attr('id', 'rb-opening-' + id).attr('data-id', id);
+          $('#rb-opening-' + id).unbind('click');
+          $('#rb-opening-' + id).bind('click', function(e){ //打开红包 抢红包
+            if(e && e.stopPropagation){
+              e.stopPropagation();
+              $('.rb-opening-notice').text('开启中,请稍后...');
+              $.post('deal_with_red_beg', {id: id}, function(data){
+                chatUser.redBagId['rb'+id] = 0; //当前id红包禁用
+                $('#rb-item-rb' + i).find('rb-text-notice').text('已领取');
+                if(data.status == 1){
+                  $('.rb-opened-notice').hide();
+                  $('.rb-opened-notice').text('恭喜您抢到').show();
+                  $('.rb-opened-text').text(data.money).show();
+                }else{
+                  $('.rb-opened-notice').hide();
+                  $('.rb-opened-text').hide();
+                  $('.rb-opened-notice').text('太慢啦，红包已抢完！').show();
+                }
+                $('.rb-opening').fadeOut('50', function() {
+                  $('.rb-opened').attr('id', 'rb-opened-' + id).attr('data-id', id);
+                  $('.rb-opened').fadeIn('100');
+                });
+              });
+              
+            }
+          });
+
+        });
+
+      };
+    </script>
+
+    <!-- 开奖弹窗 -->
+    <div id="dialog_open_content"></div>
+    <div id="dialog_open_info" style="position:absolute;bottom:35px;right:20px;width:auto;border-radius: 6px;padding-bottom:2px;display:none;background: #fff;" >
+      
+        <h3 class="openInfoWin" style="color:#fff;margin:0px;padding:6px 8px;"><span>中奖信息</span>
+        <a class="layui-layer-ico layui-layer-close layui-layer-close1" href="javascript:;"></a>
+        </h3>
+        <div style="padding:4px;background: #fff;">
+          <div class="layui-layer-content" style="max-height:500px;overflow:auto">
+            <div id="lottery_info" style="list-style: none;"></div>
+          </div>
+          <div class="layui-layer-btns" style="margin-top:10px;padding:0 10px;background: #fff;">
+            <a class="layui-layer-btn0" id="dialog_userpay_content_close" style="border:none;float:right;padding:3px 10px;border-radius:4px;cursor:pointer;color:#fff;">关闭</a>
+          </div>
+        </div>
+      
+    </div>
+
+    <!-- 新消息弹窗 -->
+    <div id="dialog_newmsg" style="position:absolute;bottom:35px;right:20px;width:auto;border:1px solid #b34248;border-radius: 6px;padding-bottom:2px;display:none;" >
+      
+        <h3 style="background: #b34248;color:#fff;margin:0px;padding:6px 8px;"><span>消息提醒</span>
+        <a class="layui-layer-ico layui-layer-close layui-layer-close1" href="javascript:;"></a>
+        </h3>
+        <div style="padding:4px;background: #fff;">
+          <div class="layui-layer-content">
+            <div id="newmsg_tit" style="list-style: none;"></div>
+            <div id="newmsg_con" style="list-style: none;"></div>
+          </div>
+          
+          <div class="layui-layer-btns" style="margin-top:10px;padding:0 10px;">
+            <a class="layui-layer-btn0" id="dialog_newmsg_content_action" style="border:none">查看</a>
+            
+            <a class="layui-layer-btn0" id="dialog_newmsg_content_close" style="border:none">关闭</a>
+          </div>
+        </div>
+      
+    </div>
+
+
+  </body>
+  <script type="text/javascript" src="/Public/Home/Js/parent.min.js?v=1523860797"></script>
+  
+  <script type="text/javascript">
+    function SetWinHeight(e){
+      var timer;
+      var i = 0;
+      // $("#mcMenuFrame").load(function(){
+      if (timer){
+          clearInterval(timer);
+      }
+      
+      var mainheight,pre_height;
+      if(e == 1){
+        var frame_content = $("#mcMenuFrame");
+      }else{
+        var frame_content = $("#mcMenuFrame", parent.document);
+      }
+      timer = setInterval(function(){
+          i++;
+          if(i > 5){clearInterval(timer);}
+          mainheight = frame_content.contents().find("body").height() + 50;
+          if (mainheight != pre_height){
+            pre_height = mainheight;
+            frame_content.height(Math.max(mainheight,550));
+          }
+      },500);//每0.1秒检查一次
+      // });
+    }
+
+    //公告
+    var noticesData = '';
+      "";
+        noticesData += "尊敬的广大会员，您好！入款银行卡【民生-尹淑清】【民生-尹淑清】【民生-尹淑清】【民生-尹淑清】【民生-尹淑清】【民生-尹淑清】已永久停止使用，若入款到过期的账号，视为无效的存款，平台一概不负责，如果您需要银行卡转账进行充值,请您联系客服QQ2221234507，2221234508！请您每次入款之前先核对我们的入款银行卡账号！谢谢您的配合与支持，祝大家游戏愉快！（请勿相信主动加您好友让您充值的QQ哦）^*";
+      "";
+        noticesData += "尊敬的广大用户：如有发现打开我们的网址变成“403”请您更换浏览器，尽量不要使用360安全浏览器！感谢您对必赢平台的支持与信任！祝生活愉快！^*";
+      "";
+        noticesData += "【重要通知】尊敬的客户您好：如您登录必赢彩票的网址跳转到其他平台，那么就是您本地的DNS被电信商强行劫持到黑庄，非常危险，本公司不会改名，在线客服也不会向会员索取登入密码和取款密码，更没有推出任何新平台，也不会停止服务。如发现网页被跳转立刻联系客服处理！客服专员QQ：2221234507 2221234513。认准必赢彩票官方网址bb88.com ^*必赢平台禁止下注8 9码，请广大会员悉知！^*";
+      "";
+      var noticeArr = noticesData.split('^*');
+      noticeArr.splice(noticeArr.length - 1, 1);
+      $noticeEle = $('<div class="noticeEle">' +
+        '<div class="tit"><img src="/Public/Home/Img/notice_pic.png" width="220" alt="" /></div>' +
+        '<div class="con nano" style="padding: 10px 20px; box-sizing:border-box; line-height: 30px; background-color: #393D49; color: #fff; font-size:12px;max-height:300px"><div class="con-list nano-content" style="padding: 10px 20px; box-sizing:border-box;"></div></div>' +
+        '</div>');
+      for(var k in noticeArr){
+        $noticeEle.find('.con-list').append('<p>'+ (parseInt(k)+1)+ '. ' +noticeArr[k]+'</p>');
+      }
+      var noticeEle = $noticeEle[0];
+      $('.announce-list').vTicker({
+        speed: 700,//默认值----滚动持续时间700ms
+        pause: 3000,//默认值----滚动间隔4000ms
+        showItems: 3,//默认值----每次滚动显示的行数
+        animation: "",//默认值----滚动动画，默认为空，可选“fade’即第一行最后一行淡入淡出
+        mousePause: true,//默认值----鼠标悬停时不滚动，若改为‘FALSE’鼠标悬停继续滚动
+        isPaused: false,//默认值----是否暂停,若改为‘TRUE’后停止滚动
+        direction: "up",//默认值----向上滚动，‘down’为向下滚动
+        height: 0//默认值----容器高度，默认为 0，即根据 showItems 个数自动计算 
+      });
+
+      notices();
+      function notices() {
+        layer.open({
+          type: 1
+          ,title: false //不显示标题栏
+          ,closeBtn: false
+          ,area: '500px;'
+          ,shade: 0.8
+          ,id: 'LAY_layuipro' //设定一个id，防止重复弹出
+          ,btn: ['已阅读']
+          ,btnAlign: 'c'
+          ,moveType: 1 //拖拽模式，0或者1
+          ,content: $noticeEle.html()
+          ,shadeClose: true
+          ,success: function(){
+            $('#LAY_layuipro').css('background', 'none !important').parent().css('background', 'linear-gradient(to bottom,rgba(30,87,153,1) 0,rgba(0,219,255,1) 0,rgba(0,165,255,1) 100%)');
+            $('#LAY_layuipro').find('div').css('background', 'none');
+            $('#LAY_layuipro').css('background', 'none !important').parent().find('.layui-layer-btn0').css({'background-color':'#ffa835', 'font-size': '14px'});
+            //弹窗滚动条处理
+            $('#LAY_layuipro').parent().css('top', parseInt($('#LAY_layuipro').parent().css('top'))-100);
+            $(".nano").nanoScroller();
+          }
+        });
+      }
+
+      //scroll
+      $(".nano").nanoScroller();
+
+    // 更换皮肤 js
+    $('#skinPanel').mouseover(function(){
+      $('#skinList').show();
+    }).mouseout(function(){
+      $('#skinList').hide();
+    });
+    function changeSkin(c){
+      $('body').attr('class','skin_'+c);
+      document.getElementById('mcMenuFrame').contentDocument.body.setAttribute('class','skin_'+c)
+      SetCookie('newskin',c);
+      document.getElementById('mcMenuFrame').contentWindow.skinColor = 'skin_'+c;
+    }
+
+    $('.logout').click(function(){
+       layer.confirm('确定要退出吗？',{icon: 3,title: '提示'},function(){
+          location.href = '/do_out?f=';
+       });
+    });
+
+    $('.do_reg').click(function(){
+       layer.confirm('确定要退出注册吗？，点击确定即将跳转到本站注册页面！',{icon: 3,title: '提示'},function(){
+          location.href = '/reg?f=';
+       });
+    });
+
+  </script>
+</html>
