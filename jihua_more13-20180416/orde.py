@@ -1,7 +1,7 @@
 #/usr/bin/env python3
 # -*- coding: utf-8 -*-
 
-''' 模拟下单
+''' 模拟下单   .
 http://cn.python-requests.org/zh_CN/latest/user/quickstart.html
 http://cn.python-requests.org/zh_CN/latest/user/advanced.html
 操作cookie
