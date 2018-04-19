@@ -142,7 +142,7 @@ def placeOrder():
         # 拿到数据决定买什么的参数
         # get_jihua_parms = jihua_2008cai.get_url()
         
-        get_jihua_parms = shenjihua.get_info()
+        get_jihua_parms = shenjihua.get_info('')
         orders = get_jihua_parms['buyParms']
         historyLottery_will = get_jihua_parms['will_buyhao']
         myMoney = readFile()

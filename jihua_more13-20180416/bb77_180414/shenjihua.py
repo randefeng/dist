@@ -15,6 +15,7 @@ dr = re.compile(r'<[^>]+>',re.S)
 buyMoney = 1
 # 获取到页面上的数据_LIST
 def  get_info () :
+     print('loadUal=====http://www.shenjihua.cc/jihua/9451.html==========')
      url ='http://www.shenjihua.cc/jihua/9451.html'
      print('url===============',url)
      res = requests.get (url)

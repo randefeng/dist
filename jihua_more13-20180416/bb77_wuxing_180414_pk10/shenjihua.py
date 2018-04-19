@@ -23,6 +23,8 @@ def  get_info (url) :
      for  rank  in linkes:
           dd = dr.sub('',rank)
           splic_data =dd.split(' ')
+
+         
           _LIST.append(splic_data)
      aa =_LIST
      return  BUYHAOMA(analysis(aa),beishu(aa)) 
@@ -31,7 +33,13 @@ def  get_info (url) :
 # 解析把药买的号返回 这个是做平买方便
 def analysis(myList):
     willBuy_data = myList[0][3].split('：')
-    return  willBuy_data[-1].split(',')
+      
+    
+    info_lis = willBuy_data[-1].split(',')
+    info_lis_new =[]
+    for  k  in  info_lis:
+        info_lis_new.append(int(k))
+    return  info_lis_new
 # 解析把药买的号返回 这个是做平买方便
 def beishu(aa):
     # print('aa=========',aa)

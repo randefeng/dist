@@ -7,6 +7,8 @@ import json
 import  jihua_2008cai
 import cookie_yang
 import shenjihua
+import taiyang
+
 # 登陆headers_bets
 headers={
     'User-Agent':"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11"
@@ -19,8 +21,8 @@ YICITOU =1
 def login(flag):
     urls ='http://main.by189.cn/do_login'
     params={
-        'username': '!guest!',
-        'password': '!guest!'
+        'username': 'defeng001',
+        'password': 'defeng701'
     }
     global requests_cookie
     try:
@@ -144,7 +146,8 @@ def placeOrder():
         # 拿到数据决定买什么的参数
         # get_jihua_parms = jihua_2008cai.get_url()
         
-        get_jihua_parms = shenjihua.get_info()
+        # get_jihua_parms = shenjihua.get_info()
+        get_jihua_parms = taiyang.get_info()
         orders = get_jihua_parms['buyParms']
         historyLottery_will = get_jihua_parms['will_buyhao']
         myMoney = readFile()

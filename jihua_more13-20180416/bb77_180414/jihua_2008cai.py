@@ -48,6 +48,7 @@ def  get_url():
      tow_jihua()
      time.sleep(1)
     #  _global_dict_url = 'https://www.cai2008.com/m/html/houyi.html'
+     print('loadUal===== ==========',_global_dict_url)
      res = requests.get (_global_dict_url,headers =headers)
      res.encoding = "utf-8"
      if res.status_code ==200:
