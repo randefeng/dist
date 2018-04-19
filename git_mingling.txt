@@ -7,7 +7,7 @@ git add -A ：是上面两个功能的合集（git add --all的缩写）
 
 2.git放弃修改，强制覆盖本地代码
 $ git fetch --all
-$ git reset --hard origin/master 
+$ git reset --hard origin/master   （sure  no）
 $ git pull
 
 
