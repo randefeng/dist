@@ -1,4 +1,5 @@
 # _*_ coding:utf-8 _*_
+# def
 import requests
 import re 
 import time 
@@ -7,6 +8,7 @@ import json
 import  jihua_2008cai
 import cookie_yang
 import shenjihua
+import jihuaapk
 # 登陆headers_bets
 headers={
     'User-Agent':"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11"
@@ -86,6 +88,8 @@ def readFile():
             isWinning =set(get_open_phase['historyLottery']) &set(_getsSelfData['lottery']['cqssc']['open_result'][-1])
             kaijiang_ge = _getsSelfData['lottery']['cqssc']['open_result'][-1]
             buyhistory =get_open_phase['historyLottery']
+            print(111111111)
+            
             if kaijiang_ge in buyhistory:
                 f = open('isWinning.txt','a',encoding='UTF-8')
                 print(22) 
@@ -124,10 +128,12 @@ def placeOrder():
     isFile()
     global ISBUY
     if not ISBUY:
-        if time.localtime().tm_min%5 ==0 or time.localtime().tm_min%5==1:
+        m =time.localtime().tm_min
+        # 234   789 回复
+        if m%10>=2 and m%10<=4 or m%10>=7 and m%10<=9:
             # 整点后回复
             ISBUY = True
-    if time.localtime().tm_hour>=3 and (time.localtime().tm_hour<=9 and time.localtime().tm_min<=50):
+    if time.localtime().tm_hour<9:
         print('休息中', time.strftime('%Y-%m-%d %H:%M:%S'))
         return
     time.sleep(1)
@@ -143,18 +149,19 @@ def placeOrder():
         # get_jihua_parms = jihua_2008cai.get_url()
         
         get_jihua_parms = shenjihua.get_info('')
+        # get_jihua_parms = jihuaapk.get_info()18- 01k-feng-04----06 feng18   
         orders = get_jihua_parms['buyParms']
         historyLottery_will = get_jihua_parms['will_buyhao']
         myMoney = readFile()
         # 二次拼接成接口需要的形式
-        print('下注========',pow(2, myMoney)*YICITOU)
+        print('下注========',orders)
         for idnex, item in   enumerate(orders):
             for  kk in item:
                 listData = 'orders'+'['+str(idnex)+']'+'['+kk+']'# 拼接出来key
-                item['money'] =pow(2, myMoney)*YICITOU
+                item['money'] =1
                 params_bets[listData]=item[kk] 
         params_bets1 =params_bets   # 下单数据    
-        
+        print(params_bets1)
         requests_cookie.cookies=get_cookie()
         html = requests_cookie.post(urls_bets,data=params_bets1,headers=headers_bets)
         JSON_data_History= json.loads(html.text)
@@ -187,16 +194,12 @@ def is_timebuy():
 	h = now.tm_hour
 	m = now.tm_min
 	#s = now.tm_sec
-
-	if h>=22 and h<=23 or h<2:
-		# 5min 
-		if m%5>=2 and m%5<=3:
+	if h>=9:
+		# 5min 18- 01k-feng-04----06 feng18
+		if m%10>=0 and m%10<=1 or m%10>=5 and m%10<=6:
+            # 0-1 5-6
+            # 234  6789
 			return True
-			
-	elif h>9 and h<22:
-		if m%10>=2 and m%10<=4:
-			return True
-			
 	else:
 		pass
 		
