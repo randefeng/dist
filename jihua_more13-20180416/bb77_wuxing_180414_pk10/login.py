@@ -56,7 +56,15 @@ def getsSelfData():
     # print(res.json()['lottery']['cqssc']['next_phase'])
     # qihao_now = res.json()['lottery']['cqssc']['next_phase']
     # print(res.json())
-    return res.json()  
+    aa = res.json() 
+    
+    bb =aa["lottery"]["bjpk10"]["open_result"]
+    bb=['10', '04', '08', '01', '06', '02', '05', '09', '03', '07']
+    cc = []
+    for  item in bb:
+        cc.append(int(item))
+    aa["lottery"]["bjpk10"]["open_result"] = cc
+    return aa  
 #  ======================================================================      
 def writeFile(d):
     # d ={'differtime': 254, 'next_phase': '20180413058', 'open_phase': '20180413057', 'open_result': ['8', '0', '7', '5', '7'], 'myBuyMoney': 0, 'historyLottery': ['0', '1', '3', '6', '9']}
@@ -84,12 +92,12 @@ def readFile():
         _getsSelfData = getsSelfData()
         aa =get_open_phase.replace('\'','\"')
         get_open_phase =json.loads(aa)
-        if get_open_phase['next_phase'] == _getsSelfData['lottery']['cqssc']['open_phase']:
-            isWinning =set(get_open_phase['historyLottery']) &set(_getsSelfData['lottery']['cqssc']['open_result'][-1])
-            kaijiang_ge = _getsSelfData['lottery']['cqssc']['open_result'][-1]
+        if get_open_phase['next_phase'] == _getsSelfData['lottery']['bjpk10']['open_phase']:
+            isWinning =set(get_open_phase['historyLottery']) &set(_getsSelfData['lottery']['bjpk10']['open_result'][0])
+            print("=====",get_open_phase['historyLottery'])
+            print("=====",_getsSelfData['lottery']['bjpk10']['open_result'])
+            kaijiang_ge = _getsSelfData['lottery']['bjpk10']['open_result'][-1]
             buyhistory =get_open_phase['historyLottery']
-            print(111111111)
-            
             if kaijiang_ge in buyhistory:
                 f = open('isWinning.txt','a',encoding='UTF-8')
                 print(22) 
@@ -154,23 +162,25 @@ def placeOrder():
         historyLottery_will = get_jihua_parms['will_buyhao']
         myMoney = readFile()
         # 二次拼接成接口需要的形式
-        print('下注========',orders)
+        print('print========myMoney')
+        print('下注========',pow(2, myMoney)*YICITOU)
+        
         for idnex, item in   enumerate(orders):
             for  kk in item:
                 listData = 'orders'+'['+str(idnex)+']'+'['+kk+']'# 拼接出来key
                 item['money'] =1
                 params_bets[listData]=item[kk] 
         params_bets1 =params_bets   # 下单数据    
-        print(params_bets1)
         requests_cookie.cookies=get_cookie()
         html = requests_cookie.post(urls_bets,data=params_bets1,headers=headers_bets)
+        
         JSON_data_History= json.loads(html.text)
         if JSON_data_History['status']==1:
             getNowData = getsSelfData()
             
-            getNowData['lottery']['cqssc']['myBuyMoney']=myMoney
-            getNowData['lottery']['cqssc']['historyLottery']=historyLottery_will
-            writeFile(getNowData['lottery']['cqssc'])
+            getNowData['lottery']['bjpk10']['myBuyMoney']=myMoney
+            getNowData['lottery']['bjpk10']['historyLottery']=historyLottery_will
+            writeFile(getNowData['lottery']['bjpk10'])
             ISBUY = False
             print('下单成功：'+time.strftime('%Y-%m-%d %H:%M:%S'))
             print('下单money：'+JSON_data_History['money'])
