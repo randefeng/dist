@@ -5,10 +5,10 @@ import re
 import time 
 import os
 import json 
-import  jihua_2008cai
+# import  jihua_2008cai
 import cookie_yang
 import shenjihua
-import jihuaapk
+# import jihuaapk
 # 登陆headers_bets
 headers={
     'User-Agent':"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11"
@@ -57,14 +57,13 @@ def getsSelfData():
     # qihao_now = res.json()['lottery']['cqssc']['next_phase']
     # print(res.json())
     aa = res.json() 
-    
     bb =aa["lottery"]["bjpk10"]["open_result"]
     # bb=['10', '04', '08', '01', '06', '02', '05', '09', '03', '07']
-    cc = []
-    for  item in bb:
-        cc.append(int(item))
-    aa["lottery"]["bjpk10"]["open_result"] = cc
-    return aa  
+    # cc = []
+    # for  item in bb:
+    #     cc.append(int(item))
+    # aa["lottery"]["bjpk10"]["open_result"] = cc
+    return res.json()   
 #  ======================================================================      
 def writeFile(d):
     # d ={'differtime': 254, 'next_phase': '20180413058', 'open_phase': '20180413057', 'open_result': ['8', '0', '7', '5', '7'], 'myBuyMoney': 0, 'historyLottery': ['0', '1', '3', '6', '9']}
@@ -83,6 +82,7 @@ moreBeishu=0
 def readFile():
     global moreBeishu
     # get_open_phase = {"differtime":507,'myBuyMoney':1233,"next_phase":"20180413037","open_phase":"20180413036","open_result":["7","4","9","8","8"]}
+    
     f = open('historyMoney.txt','r',encoding='UTF-8')
     lines =f.readlines()
     f.close()
@@ -92,15 +92,13 @@ def readFile():
         _getsSelfData = getsSelfData()
         aa =get_open_phase.replace('\'','\"')
         get_open_phase =json.loads(aa)
-        print("-----------------",get_open_phase)
-        print("--------------------",_getsSelfData)
-        if get_open_phase['next_phase'] == _getsSelfData['lottery']['bjpk10']['open_phase']:
-            isWinning =set(get_open_phase['historyLottery']) &set(_getsSelfData['lottery']['bjpk10']['open_result'][0])
-            kaijiang_ge = _getsSelfData['lottery']['bjpk10']['open_result'][-1]
+        # if True:
+        if str(get_open_phase['next_phase']) == _getsSelfData['lottery']['bjpk10']['open_phase']:
+            # isWinning =set(get_open_phase['historyLottery']) &set(_getsSelfData['lottery']['bjpk10']['open_result'][0])
+            kaijiang_ge = _getsSelfData['lottery']['bjpk10']['open_result'][0]
             buyhistory =get_open_phase['historyLottery']
             if kaijiang_ge in buyhistory:
                 f = open('isWinning.txt','a',encoding='UTF-8')
-                print(22) 
                 f.write(str(moreBeishu)+'倍中'+'\n')
                 moreBeishu =0
                 f.close()
@@ -145,7 +143,7 @@ def placeOrder():
         print('休息中', time.strftime('%Y-%m-%d %H:%M:%S'))
         return
     time.sleep(1)
-    if True:
+    if ISBUY and is_timebuy():
         urls_bets = 'http://main.by189.cn/bets'
         # 提交的参数
         params_bets={
@@ -158,7 +156,6 @@ def placeOrder():
         
         get_jihua_parms = shenjihua.get_info('')
         # get_jihua_parms = jihuaapk.get_info()18- 01k-feng-04----06 feng18   
-        print(11111111111111111111111)
         orders = get_jihua_parms['buyParms']
         historyLottery_will = get_jihua_parms['will_buyhao']
         myMoney = readFile()
