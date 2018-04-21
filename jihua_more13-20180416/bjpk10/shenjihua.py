@@ -15,7 +15,7 @@ dr = re.compile(r'<[^>]+>',re.S)
 buyMoney = 1
 # 获取到页面上的数据_LIST
 def  get_info (url) :
-     url ='http://www.shenjihua.cc/jihua/12349.html'
+    #  url ='http://www.shenjihua.cc/jihua/12331.html'
      print('url===用============',url)
      res = requests.get (url)
      _LIST = []
@@ -43,7 +43,7 @@ def analysis(myList):
 
 # 获取网站的第一个计划
 def  get_links():     
-     web_data = requests.get('http://www.shenjihua.cc/jihua-catid-8-areaid-2-jhms-5.html',headers =headers,timeout=7)
+     web_data = requests.get('http://www.shenjihua.cc/jihua-catid-14-areaid-3-jhmsbj-3.html',headers =headers,timeout=7)
      soup =BeautifulSoup(web_data.text,'lxml')
      linkes = soup.select('body > div > div > ul > li:nth-of-type(1) > a')
      print(linkes[1].get('href'))
@@ -61,8 +61,8 @@ def  BUYHAOMA(buyNumber):
     for  i  in  buyNumber :
         obj = {'odds':'9.99','title':'单号', 'play':'B1','code':'bjpk10'}
         obj['money']= '' # 钱
-        obj['num']='冠军 '+str(i) # 第几个那个号
-        obj['content']=(i) # 那个号
+        obj['num']='冠军 '+str(int(i)) # 第几个那个号
+        obj['content']=str(int(i)) # 那个号
         obj['check']='true' # 那个号
         orders.append(obj) # 拼接数组
     return   {

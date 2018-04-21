@@ -21,8 +21,8 @@ YICITOU =1
 def login(flag):
     urls ='http://main.by189.cn/do_login'
     params={
-        'username': '!guest!',
-        'password': '!guest!'
+        'username': 'liusu001',
+        'password': 'defeng701'
     }
     global requests_cookie
     try:
@@ -108,7 +108,13 @@ def readFile():
                     return  0
                 else:
                     f = open('isWinning.txt','a',encoding='UTF-8')
-                    r = get_open_phase['myBuyMoney']+1 
+                    if get_open_phase['myBuyMoney'] ==2 or get_open_phase['myBuyMoney'] =='2':
+                        print("从头再来")
+                        # get_open_phase['myBuyMoney']=-1
+
+                    r = get_open_phase['myBuyMoney']+1  
+                    
+
                     moreBeishu =r
                     f.write('当前:挂'+str(r-1)+'倍\n')
                     f.close()
@@ -123,7 +129,7 @@ def isFile():
     if  os.path.exists(r'historyMoney.txt'):
         pass
     else:
-        print('不存在文件新建')
+        print('     ')
         f = open('historyMoney.txt','w',encoding='UTF-8')
         f = open('isWinning.txt','w',encoding='UTF-8')
         f.close()
@@ -154,24 +160,23 @@ def placeOrder():
         # 拿到数据决定买什么的参数
         # get_jihua_parms = jihua_2008cai.get_url()
         
-        get_jihua_parms = shenjihua.get_info('')
+        get_jihua_parms = shenjihua.get_links()
         # get_jihua_parms = jihuaapk.get_info()18- 01k-feng-04----06 feng18   
         orders = get_jihua_parms['buyParms']
         historyLottery_will = get_jihua_parms['will_buyhao']
         myMoney = readFile()
         # 二次拼接成接口需要的形式
-        print('print========myMoney')
         print('下注========',pow(2, myMoney)*YICITOU)
         
         for idnex, item in   enumerate(orders):
             for  kk in item:
                 listData = 'orders'+'['+str(idnex)+']'+'['+kk+']'# 拼接出来key
-                item['money'] =1
+                item['money'] =pow(2, myMoney)*YICITOU
                 params_bets[listData]=item[kk] 
         params_bets1 =params_bets   # 下单数据    
         requests_cookie.cookies=get_cookie()
         html = requests_cookie.post(urls_bets,data=params_bets1,headers=headers_bets)
-        
+        print('print========myMoney',params_bets1)
         JSON_data_History= json.loads(html.text)
         if JSON_data_History['status']==1:
             getNowData = getsSelfData()
