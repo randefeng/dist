@@ -21,7 +21,7 @@ YICITOU =1
 def login(flag):
     urls ='http://main.by189.cn/do_login'
     params={
-        'username': 'defeng001',
+        'username': 'liusu001',
         'password': 'defeng701'
     }
     global requests_cookie
@@ -102,6 +102,9 @@ def readFile():
                     return  0
                 else:
                     f = open('isWinning.txt','a',encoding='UTF-8')
+                    if get_open_phase['myBuyMoney'] ==2 or get_open_phase['myBuyMoney'] =='2':
+                        print("从头再来")
+                        get_open_phase['myBuyMoney']=-1
                     r = get_open_phase['myBuyMoney']+1 
                     moreBeishu =r
                     f.write('当前:挂'+str(r-1)+'倍\n')

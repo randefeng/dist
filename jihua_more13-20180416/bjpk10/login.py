@@ -171,7 +171,7 @@ def placeOrder():
         for idnex, item in   enumerate(orders):
             for  kk in item:
                 listData = 'orders'+'['+str(idnex)+']'+'['+kk+']'# 拼接出来key
-                item['money'] =pow(2, myMoney)*YICITOU
+                item['money'] =1
                 params_bets[listData]=item[kk] 
         params_bets1 =params_bets   # 下单数据    
         requests_cookie.cookies=get_cookie()
