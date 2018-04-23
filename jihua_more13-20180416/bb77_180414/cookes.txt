@@ -1,2 +1,2 @@
 #LWP-Cookies-2.0
-Set-Cookie3: PHPSESSID=jigqnvrtqfpgj4r8mlb2fscgj7; path="/"; domain="main.by189.cn"; path_spec; discard; version=0
+Set-Cookie3: PHPSESSID=d746hfrqmo7jdmsav46dj11c26; path="/"; domain="main.by189.cn"; path_spec; discard; version=0

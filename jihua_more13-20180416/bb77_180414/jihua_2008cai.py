@@ -45,42 +45,46 @@ def formtNum(aa):
 _global_dict_url =''    
 def  get_url():
     #  在吧最高的去BUY
-     tow_jihua()
-     time.sleep(1)
-    #  _global_dict_url = 'https://www.cai2008.com/m/html/houyi.html'
-     print('loadUal===== ==========',_global_dict_url)
-     res = requests.get (_global_dict_url,headers =headers)
-     res.encoding = "utf-8"
-     if res.status_code ==200:
-        dangqiangQIHAO = re.findall('<div class="list_ftbox" id="jihua_now">(.*?)<br>(.*?)<em>(.*?)</em>(.*?)<em>(.*?)</em>(.*?)<em>(.*?)</em></div>',res.text,re.S) 
-        linkes =re.findall('<li>(.*?)</li>',res.text,re.S) 
-        #  jihua_star = linkes[-1][0:3]
-        #  获取要买的号码
-        buyhaoma =linkes[-1]
-        
-        buyhaoma1 = re.findall('【(.*?)】',buyhaoma,re.S)
-        _list_willBuyqihao =[]
-        print('计划---------------------------',buyhaoma1)
-        print('人地址---------------------------',_global_dict_url)
-        #  buyhaoma1 = ['23478']
-        for  k  in buyhaoma1[0]:
-            _list_willBuyqihao.append(k)
-        #  获取投注倍数
-        jihua_end =linkes[-1][4:7]
-        str_qihao =dangqiangQIHAO[0][0]
-        qihao = re.findall('第(.*?)期',str_qihao,re.S) 
-        
-        now_qihao =qihao[0][-3:]
-        toubei = int(jihua_end)-int(now_qihao) 
-        #  money_yizhu = pow(2,formtTOUZHU(toubei) )*_willBuy_money
-        will_buyhao =_list_willBuyqihao
-        #  bets = [{"name":int(x),"room_id":"0","lottery_id":"54","issue":'',"method_id":"700005","bet_num":int(x),"odds":'9.980',"bet_money":money_yizhu,"$$hashKey":"object:%d" % (300+i)} for (i,x) in enumerate(will_buyhao)] 
-        return {'buyParms':BUYHAOMA(will_buyhao,''),'will_buyhao':will_buyhao}
-     else:
-        print('get_url--------错误') 
+     _global_dict_url =tow_jihua()
+     print(_global_dict_url)
+     if _global_dict_url:
+        time.sleep(1)
+        #  _global_dict_url = 'https://www.cai2008.com/m/html/houyi.html'
+        print('loadUal===== ==========',_global_dict_url)
+        res = requests.get (_global_dict_url,headers =headers)
+        res.encoding = "utf-8"
+        if res.status_code ==200:
+            dangqiangQIHAO = re.findall('<div class="list_ftbox" id="jihua_now">(.*?)<br>(.*?)<em>(.*?)</em>(.*?)<em>(.*?)</em>(.*?)<em>(.*?)</em></div>',res.text,re.S) 
+            linkes =re.findall('<li>(.*?)</li>',res.text,re.S) 
+            #  jihua_star = linkes[-1][0:3]
+            #  获取要买的号码
+            buyhaoma =linkes[-1]
+            
+            buyhaoma1 = re.findall('【(.*?)】',buyhaoma,re.S)
+            _list_willBuyqihao =[]
+            print('计划---------------------------',buyhaoma1)
+            print('人地址---------------------------',_global_dict_url)
+            #  buyhaoma1 = ['23478']
+            for  k  in buyhaoma1[0]:
+                _list_willBuyqihao.append(k)
+            #  获取投注倍数
+            jihua_end =linkes[-1][4:7]
+            str_qihao =dangqiangQIHAO[0][0]
+            qihao = re.findall('第(.*?)期',str_qihao,re.S) 
+            
+            now_qihao =qihao[0][-3:]
+            toubei = int(jihua_end)-int(now_qihao) 
+            #  money_yizhu = pow(2,formtTOUZHU(toubei) )*_willBuy_money
+            will_buyhao =_list_willBuyqihao
+            #  bets = [{"name":int(x),"room_id":"0","lottery_id":"54","issue":'',"method_id":"700005","bet_num":int(x),"odds":'9.980',"bet_money":money_yizhu,"$$hashKey":"object:%d" % (300+i)} for (i,x) in enumerate(will_buyhao)] 
+            return {'buyParms':BUYHAOMA(will_buyhao,''),'will_buyhao':will_buyhao}
+        else:
+            print('get_url--------错误') 
         #  return bets
+     else:
+        print("计划不稳定，下车")    
+        return  ''
 def tow_jihua():
-    global _global_dict_url
     if nowTime() :
         url ='https://www.cai2008.com/index.html'
         res = requests.get (url,headers =headers)
@@ -94,8 +98,16 @@ def tow_jihua():
                 aa =linke.get_text() + ' ' +linke.get('href')
                 all_list.append(aa)
             aa =all_list
-            get_good_url =max([ (x[x.index('率')+1:x.index('率')+4].replace('%',''), x[x.index('率')+5:])  for x in aa], key=lambda x:int(x[0]))[1] 
-            _global_dict_url = 'https://www.cai2008.com/m/html'+get_good_url.strip()
+            getMAXLIST= []
+            for x in aa:
+                getMAXLIST.append(x[x.index('率')+1:x.index('率')+4].replace('%',''))
+            _gatMAX= max(getMAXLIST)
+            print("胜率：",_gatMAX)
+            if int(_gatMAX)>90:
+                get_good_url =max([ (x[x.index('率')+1:x.index('率')+4].replace('%',''), x[x.index('率')+5:])  for x in aa], key=lambda x:int(x[0]))[1] 
+                return 'https://www.cai2008.com/m/html'+get_good_url.strip()
+            else:
+                return  ''
         # return _global_dict_url
         else:
             print('tow_jihua--------错误')

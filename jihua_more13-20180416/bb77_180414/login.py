@@ -21,8 +21,8 @@ YICITOU =1
 def login(flag):
     urls ='http://main.by189.cn/do_login'
     params={
-        'username': 'liusu001',
-        'password': 'defeng701'
+        'username': '!guest!',
+        'password': '!guest!'
     }
     global requests_cookie
     try:
@@ -79,37 +79,23 @@ def readFile():
     lines =f.readlines()
     f.close()
     if len(lines)>0:
-        
         get_open_phase = lines[-1]
         _getsSelfData = getsSelfData()
         aa =get_open_phase.replace('\'','\"')
         get_open_phase =json.loads(aa)
-        if get_open_phase['next_phase'] == _getsSelfData['lottery']['cqssc']['open_phase']:
-            isWinning =set(get_open_phase['historyLottery']) &set(_getsSelfData['lottery']['cqssc']['open_result'][-1])
-            kaijiang_ge = _getsSelfData['lottery']['cqssc']['open_result'][-1]
-            buyhistory =get_open_phase['historyLottery']
-            print(111111111)
-            
-            if kaijiang_ge in buyhistory:
-                f = open('isWinning.txt','a',encoding='UTF-8')
-                print(22) 
-                f.write(str(moreBeishu)+'倍中'+'\n')
-                moreBeishu =0
-                f.close()
-                return  0
-            else:
-                if get_open_phase['myBuyMoney']=='':
-                    return  0
-                else:
-                    f = open('isWinning.txt','a',encoding='UTF-8')
-                    if get_open_phase['myBuyMoney'] ==2 or get_open_phase['myBuyMoney'] =='2':
-                        print("从头再来")
-                        get_open_phase['myBuyMoney']=-1
-                    r = get_open_phase['myBuyMoney']+1 
-                    moreBeishu =r
-                    f.write('当前:挂'+str(r-1)+'倍\n')
-                    f.close()
-                    return r
+        if int(_getsSelfData['money']) <= int(get_open_phase['buyed_Money']):
+            # kaijiang_ge = _getsSelfData['lottery']['cqssc']['open_result'][-1]
+            # buyhistory =get_open_phase['historyLottery']
+            r = get_open_phase['myBuyMoney']+1 
+            f = open('isWinning.txt','a',encoding='UTF-8')
+            f.write('当前:挂'+str(r-1)+'倍\n')
+            f.close()   
+            return r
+            # if get_open_phase['myBuyMoney'] ==2 or get_open_phase['myBuyMoney'] =='2':
+            #     print("从头再来")
+            #     get_open_phase['myBuyMoney']=-1
+            # r = get_open_phase['myBuyMoney']+1 
+            # moreBeishu =r
         else:
             return  0
 
@@ -148,7 +134,10 @@ def placeOrder():
         
         # 拿到数据决定买什么的参数
         get_jihua_parms = jihua_2008cai.get_url()
-        
+        if get_jihua_parms =='':
+            print("下车咯")
+            return
+
         # get_jihua_parms = shenjihua.get_info()
         # get_jihua_parms = taiyang.get_info()
         orders = get_jihua_parms['buyParms']
@@ -168,13 +157,13 @@ def placeOrder():
         JSON_data_History= json.loads(html.text)
         if JSON_data_History['status']==1:
             getNowData = getsSelfData()
-            
             getNowData['lottery']['cqssc']['myBuyMoney']=myMoney
             getNowData['lottery']['cqssc']['historyLottery']=historyLottery_will
+            getNowData['lottery']['cqssc']['buyed_Money']=JSON_data_History['money']
             writeFile(getNowData['lottery']['cqssc'])
             ISBUY = False
-            print('下单成功：'+time.strftime('%Y-%m-%d %H:%M:%S'))
-            print('下单money：'+JSON_data_History['money'])
+            print('status:'+time.strftime('%Y-%m-%d %H:%M:%S'))
+            print('buyedMoney：'+JSON_data_History['money'])
             return
         else:
             print('失败了================'+JSON_data_History['info'])
@@ -212,6 +201,7 @@ def is_timebuy():
 
 def hongbao():
     urls=''
+    params=''
     html = requests_cookie.post(urls,data=params,headers=headers)    
 #  ======================================================================
 def get_cookie():
