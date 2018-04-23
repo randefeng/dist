@@ -129,8 +129,8 @@ def placeOrder():
         print('休息中', time.strftime('%Y-%m-%d %H:%M:%S'))
         return
     time.sleep(1)
-    # if is_timebuy() and ISBUY:
-    if True:
+    if is_timebuy() and ISBUY:
+    # if True:
         urls_bets = 'http://main.by189.cn/bets'
         # 提交的参数
         params_bets={

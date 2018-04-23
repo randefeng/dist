@@ -126,7 +126,7 @@ def  BUYHAOMA(buyNumber,money):
     orders=[]
     for  i  in  buyNumber :
         obj = {'odds':'9.99','play':'B5','code':'cqssc'}
-        obj['money']=money # 钱
+        obj['money']='外边不填写' # 钱
         obj['num']='第五球 '+str(i) # 第几个那个号
         obj['content']=i # 那个号
         obj['title']='第五球 '+str(i) # 第几个那个号
