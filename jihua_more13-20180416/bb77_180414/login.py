@@ -70,7 +70,7 @@ def writeFile(d):
     f.write('\n'+kong+'\n'+time_+nowQI+buyHao+money_+result+str(d))
     f.close()
 
-#  ======================================================================
+#  =====11=================================================================
 moreBeishu=0
 def readFile():
     global moreBeishu
