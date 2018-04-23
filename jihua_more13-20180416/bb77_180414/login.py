@@ -83,22 +83,27 @@ def readFile():
         _getsSelfData = getsSelfData()
         aa =get_open_phase.replace('\'','\"')
         get_open_phase =json.loads(aa)
-        if int(_getsSelfData['money']) <= int(get_open_phase['buyed_Money']):
-            # kaijiang_ge = _getsSelfData['lottery']['cqssc']['open_result'][-1]
-            # buyhistory =get_open_phase['historyLottery']
-            r = get_open_phase['myBuyMoney']+1 
-            f = open('isWinning.txt','a',encoding='UTF-8')
-            f.write('当前:挂'+str(r-1)+'倍\n')
-            f.close()   
-            return r
-            # if get_open_phase['myBuyMoney'] ==2 or get_open_phase['myBuyMoney'] =='2':
-            #     print("从头再来")
-            #     get_open_phase['myBuyMoney']=-1
-            # r = get_open_phase['myBuyMoney']+1 
-            # moreBeishu =r
+        _getsSelfData['user']['money']['money']=get_open_phase['buyed_Money']
+        if _getsSelfData['user']['money']['money'] !='':
+            
+            if float(_getsSelfData['user']['money']['money']) <= float(get_open_phase['buyed_Money']):
+                # kaijiang_ge = _getsSelfData['lottery']['cqssc']['open_result'][-1]
+                # buyhistory =get_open_phase['historyLottery']
+                r = get_open_phase['myBuyMoney']+1 
+                f = open('isWinning.txt','a',encoding='UTF-8')
+                f.write('当前:挂'+str(r-1)+'倍\n')
+                f.close()   
+                return r
+                # if get_open_phase['myBuyMoney'] ==2 or get_open_phase['myBuyMoney'] =='2':
+                #     print("从头再来")
+                #     get_open_phase['myBuyMoney']=-1
+                # r = get_open_phase['myBuyMoney']+1 
+                # moreBeishu =r
+            else:
+                return  0
         else:
+            print("没获取到接口money,给出0")
             return  0
-
     return 0
     
 #  ======================================================================
@@ -124,7 +129,8 @@ def placeOrder():
         print('休息中', time.strftime('%Y-%m-%d %H:%M:%S'))
         return
     time.sleep(1)
-    if is_timebuy() and ISBUY:
+    # if is_timebuy() and ISBUY:
+    if True:
         urls_bets = 'http://main.by189.cn/bets'
         # 提交的参数
         params_bets={
@@ -137,7 +143,7 @@ def placeOrder():
         if get_jihua_parms =='':
             print("下车咯")
             return
-
+        
         # get_jihua_parms = shenjihua.get_info()
         # get_jihua_parms = taiyang.get_info()
         orders = get_jihua_parms['buyParms']
@@ -151,7 +157,7 @@ def placeOrder():
                 item['money'] =pow(2, myMoney)*YICITOU
                 params_bets[listData]=item[kk] 
         params_bets1 =params_bets   # 下单数据    
-        
+        print('params_bets1==',params_bets1)
         requests_cookie.cookies=get_cookie()
         html = requests_cookie.post(urls_bets,data=params_bets1,headers=headers_bets)
         JSON_data_History= json.loads(html.text)
