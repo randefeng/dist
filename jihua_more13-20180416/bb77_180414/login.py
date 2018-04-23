@@ -211,6 +211,7 @@ def is_timebuy():
 	return False 
 
 def hongbao():
+    urls=''
     html = requests_cookie.post(urls,data=params,headers=headers)    
 #  ======================================================================
 def get_cookie():

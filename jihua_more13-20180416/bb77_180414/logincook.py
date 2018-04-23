@@ -3,7 +3,7 @@ import re
 import time 
 
 import json 
-import  df_jihua_13
+# import  df_jihua_13
 import shenjihua 
 import cookie_yang
 
