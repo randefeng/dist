@@ -103,7 +103,7 @@ def tow_jihua():
                 getMAXLIST.append(int(x[x.index('率')+1:x.index('率')+4].replace('%','')))
             _gatMAX= max(getMAXLIST)
             print("胜率：",_gatMAX)
-            if int(_gatMAX)>94:
+            if int(_gatMAX)>92:
                 get_good_url =max([ (x[x.index('率')+1:x.index('率')+4].replace('%',''), x[x.index('率')+5:])  for x in aa], key=lambda x:int(x[0]))[1] 
                 return 'https://www.cai2008.com/m/html'+get_good_url.strip()
             else:
