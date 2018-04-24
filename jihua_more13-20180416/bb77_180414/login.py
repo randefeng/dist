@@ -8,7 +8,7 @@ import  jihua_2008cai
 import cookie_yang
 import shenjihua
 import taiyang
-
+import sys,time,msvcrt
 # 登陆headers_bets
 headers={
     'Accept': 'application/json, text/plain, */*',
@@ -26,12 +26,20 @@ headers_bets =headers
 filename='cookes.txt'
 requests_cookie=''
 YICITOU =1
+
 #  ======================================================================
+username='!guest!'
+password='!guest!'
 def login(flag):
+    global username
+    global password
     urls ='http://main.by189.cn/do_login'
+    
+    username = readInput('username:',username)
+    password = readInput('password:',password)
     params={
-        'username': '!guest!',
-        'password': '!guest!'
+        'username':username,
+        'password':password
     }
     global requests_cookie
     try:
@@ -228,7 +236,33 @@ def get_cookie():
     else:
         print('无cookie')	
         return
-    
+
+# ========================================================================
+# 检查是不是输入了不输入默认登陆
+def readInput(caption, default, timeout=10):
+    start_time = time.time()
+    sys.stdout.write('%s(%d秒自动跳过):' % (caption,timeout))
+    sys.stdout.flush()
+    input = ''
+    while True:
+        ini=msvcrt.kbhit()
+        try:
+            if ini:
+                chr = msvcrt.getche()
+                if ord(chr) == 13:  # enter_key
+                    break
+                elif ord(chr) >= 32:
+                    input += chr.decode()
+        except Exception as e:
+            pass
+        if len(input) == 0 and time.time() - start_time > timeout:
+            break
+    print ('')  # needed to move to next line
+    if len(input) > 0:
+        return input+''
+    else:
+        return default
+     
 #  ======================================================================
 if  __name__ =='__main__':
     # writeFile()
