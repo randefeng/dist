@@ -46,7 +46,6 @@ _global_dict_url =''
 def  get_url():
     #  在吧最高的去BUY
      _global_dict_url =tow_jihua()
-     print(_global_dict_url)
      if _global_dict_url:
         time.sleep(1)
         #  _global_dict_url = 'https://www.cai2008.com/m/html/houyi.html'
@@ -58,6 +57,7 @@ def  get_url():
             linkes =re.findall('<li>(.*?)</li>',res.text,re.S) 
             #  jihua_star = linkes[-1][0:3]
             #  获取要买的号码
+            print('linkes',linkes)
             buyhaoma =linkes[-1]
             
             buyhaoma1 = re.findall('【(.*?)】',buyhaoma,re.S)
@@ -100,10 +100,10 @@ def tow_jihua():
             aa =all_list
             getMAXLIST= []
             for x in aa:
-                getMAXLIST.append(x[x.index('率')+1:x.index('率')+4].replace('%',''))
+                getMAXLIST.append(int(x[x.index('率')+1:x.index('率')+4].replace('%','')))
             _gatMAX= max(getMAXLIST)
             print("胜率：",_gatMAX)
-            if int(_gatMAX)>90:
+            if int(_gatMAX)>94:
                 get_good_url =max([ (x[x.index('率')+1:x.index('率')+4].replace('%',''), x[x.index('率')+5:])  for x in aa], key=lambda x:int(x[0]))[1] 
                 return 'https://www.cai2008.com/m/html'+get_good_url.strip()
             else:

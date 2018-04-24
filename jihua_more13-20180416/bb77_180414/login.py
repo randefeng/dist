@@ -11,7 +11,16 @@ import taiyang
 
 # 登陆headers_bets
 headers={
-    'User-Agent':"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11"
+    'Accept': 'application/json, text/plain, */*',
+    'Accept-Encoding': 'gzip, deflate',
+    'Accept-Language': 'zh-CN,zh;q=0.9',
+    'Connection': 'keep-alive',
+    # Cookie: page=bjpk10; more=undefined; PHPSESSID=o03dimjpcg21ik13h6fq4al980; uys=111; goeasyNode=10; username=defeng; usermoney=2491.5000; logflag=true
+    'Host': 'main.by189.cn',
+    # Referer: http://main.by189.cn/m?f=
+    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36'
+    # 谷歌liusu
+    # 'User-Agent':"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11"
 }
 headers_bets =headers
 filename='cookes.txt'
@@ -21,8 +30,8 @@ YICITOU =1
 def login(flag):
     urls ='http://main.by189.cn/do_login'
     params={
-        'username': '!guest!',
-        'password': '!guest!'
+        'username': 'liusu001',
+        'password': 'defeng701'
     }
     global requests_cookie
     try:
@@ -51,7 +60,8 @@ def now_oder_qihao():
 # 获取当前下注的期
 #  ======================================================================
 def getsSelfData():
-    url ='http://by189.cn/Mobile/Ajax/mobileAllData?lottery_code=all'
+          
+    url ='http://main.by189.cn/Mobile/Ajax/mobileAllData?lottery_code=all'
     res = requests_cookie.get(url,headers=headers)
     # print(res.json()['lottery']['cqssc']['next_phase'])
     # qihao_now = res.json()['lottery']['cqssc']['next_phase']
@@ -83,7 +93,8 @@ def readFile():
         _getsSelfData = getsSelfData()
         aa =get_open_phase.replace('\'','\"')
         get_open_phase =json.loads(aa)
-        _getsSelfData['user']['money']['money']=get_open_phase['buyed_Money']
+        # _getsSelfData['user']['money']['money']=get_open_phase['buyed_Money']
+        print('====================',_getsSelfData['user']['money'])
         if _getsSelfData['user']['money']['money'] !='':
             
             if float(_getsSelfData['user']['money']['money']) <= float(get_open_phase['buyed_Money']):
@@ -142,6 +153,7 @@ def placeOrder():
         get_jihua_parms = jihua_2008cai.get_url()
         if get_jihua_parms =='':
             print("下车咯")
+            ISBUY = False
             return
         
         # get_jihua_parms = shenjihua.get_info()
@@ -150,6 +162,7 @@ def placeOrder():
         historyLottery_will = get_jihua_parms['will_buyhao']
         myMoney = readFile()
         # 二次拼接成接口需要的形式
+        print("liusu------------------------")
         print('下注========',pow(2, myMoney)*YICITOU)
         for idnex, item in   enumerate(orders):
             for  kk in item:
@@ -157,7 +170,6 @@ def placeOrder():
                 item['money'] =pow(2, myMoney)*YICITOU
                 params_bets[listData]=item[kk] 
         params_bets1 =params_bets   # 下单数据    
-        print('params_bets1==',params_bets1)
         requests_cookie.cookies=get_cookie()
         html = requests_cookie.post(urls_bets,data=params_bets1,headers=headers_bets)
         JSON_data_History= json.loads(html.text)
