@@ -31,6 +31,8 @@ YICITOU =1
 username='!guest!'
 password='!guest!'
 def login(flag):
+    global YICITOU
+    YICITOU =readInput('一注money:',1)
     global username
     global password
     urls ='http://main.by189.cn/do_login'
