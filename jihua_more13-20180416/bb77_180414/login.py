@@ -32,6 +32,8 @@ YICITOU =1
 username='!guest!'
 password='!guest!'
 def login(flag):
+    global YICITOU
+    YICITOU =readInput('一注money:',1)
     global username
     global password
     urls ='http://main.by189.cn/do_login'
@@ -50,11 +52,12 @@ def login(flag):
         if JSON_data_History['status']==1:
             cookie_yang.save_cookies_lwp(requests_cookie.cookies, filename)
             # placeOrder()
-            if flag ==1:
-                placeOrder()
+            # if flag ==1:
+            #     placeOrder()
             print(JSON_data_History['msg'])
         else:
-            print(JSON_data_History['msg'])
+            
+            print('11',JSON_data_History['msg'])
     except Exception as e:
         print('login----',e)
         placeOrder()
@@ -111,7 +114,7 @@ def readFile():
                 # buyhistory =get_open_phase['historyLottery']
                 r = get_open_phase['myBuyMoney']+1 
                 f = open('isWinning.txt','a',encoding='UTF-8')
-                f.write('当前:挂'+str(r-1)+'倍\n')
+                f.write('时间:'+time.strftime('%Y-%m-%d %H:%M:%S')+'当前:挂'+str(r-1)+'倍\n')
                 f.close()   
                 return r
                 # if get_open_phase['myBuyMoney'] ==2 or get_open_phase['myBuyMoney'] =='2':
@@ -120,6 +123,9 @@ def readFile():
                 # r = get_open_phase['myBuyMoney']+1 
                 # moreBeishu =r
             else:
+                f = open('isWinning.txt','a',encoding='UTF-8')
+                f.write('时间:'+time.strftime('%Y-%m-%d %H:%M:%S')+'当前收:'+str(get_open_phase['myBuyMoney'])+'倍\n')
+                f.close()
                 return  0
         else:
             print("没获取到接口money,给出0")
@@ -149,8 +155,8 @@ def placeOrder():
         print('休息中', time.strftime('%Y-%m-%d %H:%M:%S'))
         return
     time.sleep(1)
-    if is_timebuy() and ISBUY:
-    # if True:
+    # if is_timebuy() and ISBUY:
+    if True:
         urls_bets = 'http://main.by189.cn/bets'
         # 提交的参数
         params_bets={
