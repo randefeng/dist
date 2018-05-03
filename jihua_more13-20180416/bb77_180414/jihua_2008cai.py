@@ -6,6 +6,7 @@ import requests
 import re 
 import time 
 import datetime
+import random
 #设置表头
 #设置表头
 headers={
@@ -13,7 +14,7 @@ headers={
     'User-Agent':"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11"
 }
 allshenglv =[]
-_willBuy_money=2
+_willBuy_money=1
 # 如果不倍投就改 toubei
 def formtTOUZHU(toubei):
     # toubei=-100
@@ -48,7 +49,7 @@ def  get_url():
      _global_dict_url =tow_jihua()
      if _global_dict_url:
         time.sleep(1)
-        #  _global_dict_url = 'https://www.cai2008.com/m/html/houyi.html'
+        # _global_dict_url = 'https://www.cai2008.com/m/html/shenxian.html'
         print('loadUal===== ==========',_global_dict_url)
         res = requests.get (_global_dict_url,headers =headers)
         res.encoding = "utf-8"
@@ -120,7 +121,7 @@ def nowTime():
         return True
 # 下注的参数
 def  BUYHAOMA(buyNumber,money):
-    # buyNumber =['0', '3', '4', '5', '7']
+    buyNumber =random.sample(range(0, 10), 5)
     # money=1
     print('buyNumber=================',buyNumber)
     orders=[]

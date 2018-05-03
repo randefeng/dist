@@ -16,7 +16,7 @@ buyMoney = 1
 # 获取到页面上的数据_LIST
 def  get_info () :
      print('loadUal=====http://www.shenjihua.cc/jihua/9451.html==========')
-     url ='http://www.shenjihua.cc/jihua/9451.html'
+     url ='http://www.shenjihua.cc/jihua/9944.html'
      print('url===============',url)
      res = requests.get (url)
      _LIST = []
@@ -108,7 +108,7 @@ def  BUYHAOMA(buyNumber,money):
     }
 
 if __name__ == '__main__':
-    print(get_links())
+    print(get_info())
     
 #     url ='http://www.shenjihua.cc/jihua/9457.html'
     # while True:

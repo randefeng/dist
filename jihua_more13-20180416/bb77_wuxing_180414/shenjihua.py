@@ -15,7 +15,7 @@ dr = re.compile(r'<[^>]+>',re.S)
 buyMoney = 1
 # 获取到页面上的数据_LIST
 def  get_info () :
-     url ='http://www.shenjihua.cc/jihua/9451.html'
+     url ='http://www.shenjihua.cc/jihua/9944.html'
      print('url===============',url)
      res = requests.get (url)
      _LIST = []
@@ -89,25 +89,45 @@ def  get_links():
 
 # 下注的参数
 def  BUYHAOMA(buyNumber,money):
-    # buyNumber =['0', '3', '4', '5', '7']
-    # money=1
     print('buyNumber=================',buyNumber)
     # print('money=================',money)
-    orders=[]
-    for  i  in  buyNumber :
-        obj = {'odds':'9.99','play':'B5','code':'cqssc'}
-        obj['money']=pow(2,money)*buyMoney # 钱
-        obj['num']='第五球 '+str(i) # 第几个那个号
-        obj['content']=i # 那个号
-        obj['title']='第五球 '+str(i) # 第几个那个号
-        orders.append(obj) # 拼接数组
-    return   {
-        'buyParms': orders,
-        'will_buyhao':buyNumber
-    }
 
+    if buyNumber[0]=='00':
+        return   {
+            'buyParms': '',
+            'will_buyhao':''
+        }
+    else:    
+        buyNumber =['3','4','5','6','7']
+        orders=[]
+        for  i  in  range(5) :
+            obj = {'odds':'9.99','play':'B1','code':'cqssc'}
+            obj['money']='' # 钱
+            obj['play']='B'+str(i+1) # 钱
+            obj['num']='第'+fomfun(i)+'球 '+(buyNumber[0]) # 第几个那个号
+            obj['content']=buyNumber[0] # 那个号
+            obj['title']='整合'# 第几个那个号
+            obj['check']='true'# 第几个那个号
+            orders.append(obj) # 拼接数组
+        return   {
+            'buyParms': orders,
+            'will_buyhao':buyNumber
+        }
+def fomfun(num):
+    if num==0:
+        return '一'
+    elif num ==1:
+        return '二'    
+    elif num ==2:
+        return '三'  
+    elif num ==3:
+        return '四'  
+    elif num ==4:
+        return '五'  
+    else:
+        return '0'    
 if __name__ == '__main__':
-    print(get_links())
+    print(get_info())
     
 #     url ='http://www.shenjihua.cc/jihua/9457.html'
     # while True:

@@ -21,8 +21,8 @@ YICITOU =1
 def login(flag):
     urls ='http://main.by189.cn/do_login'
     params={
-        'username': 'liusu001',
-        'password': 'defeng701'
+        'username': '!guest!',
+        'password': '!guest!'
     }
     global requests_cookie
     try:

@@ -5,22 +5,42 @@ import time
 import os
 import json 
 import  jihua_2008cai
+import  jihuattcgo
 import cookie_yang
 import shenjihua
+import sys,time,msvcrt
+import random
 # 登陆headers_bets
 headers={
-    'User-Agent':"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11"
+    'Accept': 'application/json, text/plain, */*',
+    'Accept-Encoding': 'gzip, deflate',
+    'Accept-Language': 'zh-CN,zh;q=0.9',
+    'Connection': 'keep-alive',
+    # Cookie: page=bjpk10; more=undefined; PHPSESSID=o03dimjpcg21ik13h6fq4al980; uys=111; goeasyNode=10; username=defeng; usermoney=2491.5000; logflag=true
+    'Host': 'main.by189.cn',
+    # Referer: http://main.by189.cn/m?f=
+    'User-Agent':'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.101 Safari/537.36'
+    # 谷歌liusu
+    # 'User-Agent':"Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/17.0.963.56 Safari/535.11"
 }
 headers_bets =headers
 filename='cookes.txt'
 requests_cookie=''
-YICITOU =1
+YICITOU =2
+
 #  ======================================================================
+username='!guest!'
+password='!guest!'
 def login(flag):
+    global username
+    global password
     urls ='http://main.by189.cn/do_login'
+    
+    username = readInput('username:',username)
+    password = readInput('password:',password)
     params={
-        'username': '!guest!',
-        'password': '!guest!'
+        'username':username,
+        'password':password
     }
     global requests_cookie
     try:
@@ -49,7 +69,8 @@ def now_oder_qihao():
 # 获取当前下注的期
 #  ======================================================================
 def getsSelfData():
-    url ='http://by189.cn/Mobile/Ajax/mobileAllData?lottery_code=all'
+          
+    url ='http://main.by189.cn/Mobile/Ajax/mobileAllData?lottery_code=all'
     res = requests_cookie.get(url,headers=headers)
     # print(res.json()['lottery']['cqssc']['next_phase'])
     # qihao_now = res.json()['lottery']['cqssc']['next_phase']
@@ -68,7 +89,7 @@ def writeFile(d):
     f.write('\n'+kong+'\n'+time_+nowQI+buyHao+money_+result+str(d))
     f.close()
 
-#  ======================================================================
+#  =====11=================================================================
 moreBeishu=0
 def readFile():
     global moreBeishu
@@ -77,37 +98,36 @@ def readFile():
     lines =f.readlines()
     f.close()
     if len(lines)>0:
-        
         get_open_phase = lines[-1]
         _getsSelfData = getsSelfData()
         aa =get_open_phase.replace('\'','\"')
         get_open_phase =json.loads(aa)
-        if get_open_phase['next_phase'] == _getsSelfData['lottery']['cqssc']['open_phase']:
-            isWinning =set(get_open_phase['historyLottery']) &set(_getsSelfData['lottery']['cqssc']['open_result'][-1])
-            kaijiang_ge = _getsSelfData['lottery']['cqssc']['open_result'][-1]
-            buyhistory =get_open_phase['historyLottery']
-            print(111111111)
-            
-            if kaijiang_ge in buyhistory:
+        # _getsSelfData['user']['money']['money']=get_open_phase['buyed_Money']
+        print('====================',_getsSelfData['user']['money'])
+        if _getsSelfData['user']['money']['money'] !='':
+            if float(_getsSelfData['user']['money']['money']) <= float(get_open_phase['buyed_Money']):
+                # kaijiang_ge = _getsSelfData['lottery']['cqssc']['open_result'][-1]
+                # buyhistory =get_open_phase['historyLottery']
+                r = get_open_phase['myBuyMoney']+1 
                 f = open('isWinning.txt','a',encoding='UTF-8')
-                print(22) 
-                f.write(str(moreBeishu)+'倍中'+'\n')
-                moreBeishu =0
-                f.close()
-                return  0
+                f.write('当前:挂'+str(r-1)+'倍\n')
+                f.close()   
+                get_open_phase['myBuyMoney'] =6
+                if get_open_phase['myBuyMoney'] ==6 or get_open_phase['myBuyMoney'] =='6':
+                     #     print("从头再来")
+                    get_open_phase['myBuyMoney']=-1
+                r = get_open_phase['myBuyMoney']+1    
+                return r
+                # if get_open_phase['myBuyMoney'] ==2 or get_open_phase['myBuyMoney'] =='2':
+                #     print("从头再来")
+                #     get_open_phase['myBuyMoney']=-1
+                # r = get_open_phase['myBuyMoney']+1 
+                # moreBeishu =r
             else:
-                if get_open_phase['myBuyMoney']=='':
-                    return  0
-                else:
-                    f = open('isWinning.txt','a',encoding='UTF-8')
-                    r = get_open_phase['myBuyMoney']+1 
-                    moreBeishu =r
-                    f.write('当前:挂'+str(r-1)+'倍\n')
-                    f.close()
-                    return r
+                return  0
         else:
+            print("没获取到接口money,给出0")
             return  0
-
     return 0
     
 #  ======================================================================
@@ -134,6 +154,8 @@ def placeOrder():
         return
     time.sleep(1)
     if is_timebuy() and ISBUY:
+    # if True:
+    # if True:
         urls_bets = 'http://main.by189.cn/bets'
         # 提交的参数
         params_bets={
@@ -142,9 +164,19 @@ def placeOrder():
         }
         
         # 拿到数据决定买什么的参数
-        get_jihua_parms = jihua_2008cai.get_url()
+        # time.sleep(40)
+        get_jihua_parms = jihuattcgo.wuxing()
+        if get_jihua_parms['buyParms'] =='':
+            print('启用第二计划')
+            get_jihua_parms = shenjihua.get_info()
+        
+        if get_jihua_parms =='':
+            print("下车咯")
+            ISBUY = False
+            return
         
         # get_jihua_parms = shenjihua.get_info()
+        # get_jihua_parms = taiyang.get_info()
         orders = get_jihua_parms['buyParms']
         historyLottery_will = get_jihua_parms['will_buyhao']
         myMoney = readFile()
@@ -155,20 +187,20 @@ def placeOrder():
                 listData = 'orders'+'['+str(idnex)+']'+'['+kk+']'# 拼接出来key
                 item['money'] =pow(2, myMoney)*YICITOU
                 params_bets[listData]=item[kk] 
-        params_bets1 =params_bets   # 下单数据    
-        
+               
+        params_bets1 =params_bets   # 下单数据  
         requests_cookie.cookies=get_cookie()
         html = requests_cookie.post(urls_bets,data=params_bets1,headers=headers_bets)
         JSON_data_History= json.loads(html.text)
         if JSON_data_History['status']==1:
             getNowData = getsSelfData()
-            
             getNowData['lottery']['cqssc']['myBuyMoney']=myMoney
             getNowData['lottery']['cqssc']['historyLottery']=historyLottery_will
+            getNowData['lottery']['cqssc']['buyed_Money']=JSON_data_History['money']
             writeFile(getNowData['lottery']['cqssc'])
             ISBUY = False
-            print('下单成功：'+time.strftime('%Y-%m-%d %H:%M:%S'))
-            print('下单money：'+JSON_data_History['money'])
+            print('status:'+time.strftime('%Y-%m-%d %H:%M:%S'))
+            print('buyedMoney：'+JSON_data_History['money'])
             return
         else:
             print('失败了================'+JSON_data_History['info'])
@@ -205,6 +237,8 @@ def is_timebuy():
 	return False 
 
 def hongbao():
+    urls=''
+    params=''
     html = requests_cookie.post(urls,data=params,headers=headers)    
 #  ======================================================================
 def get_cookie():
@@ -213,11 +247,38 @@ def get_cookie():
     else:
         print('无cookie')	
         return
-    
+
+# ========================================================================
+# 检查是不是输入了不输入默认登陆
+def readInput(caption, default, timeout=10):
+    start_time = time.time()
+    sys.stdout.write('%s(%d秒自动跳过):' % (caption,timeout))
+    sys.stdout.flush()
+    input = ''
+    while True:
+        ini=msvcrt.kbhit()
+        try:
+            if ini:
+                chr = msvcrt.getche()
+                if ord(chr) == 13:  # enter_key
+                    break
+                elif ord(chr) >= 32:
+                    input += chr.decode()
+        except Exception as e:
+            pass
+        if len(input) == 0 and time.time() - start_time > timeout:
+            break
+    if len(input) > 0:
+        return input+''
+    else:
+        return default
+     
 #  ======================================================================
 if  __name__ =='__main__':
     # writeFile()
     # writeFile()
+    
+
     login(2)
     time.sleep(5)
     # placeOrder()
