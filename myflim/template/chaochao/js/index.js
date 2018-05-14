@@ -1,0 +1,1 @@
+document.writeln("<div class=\"leaveNavInfo\"><a href=\"https:\/\/www.28lou.com\/vod-type-id-37-pg-1.html\" target=\"_blank\" style=\" width:90%; margin:0 auto; text-decoration:none; display:block; clear:both;border-radius: 15px; border:1px solid #02e20c; height:30px; text-align:center; color:#02e20c; font:bold 16px\/30px \'微软雅黑\'\">☆看日韩欧美伦理福利大片点击此处<\/a><\/div>");
